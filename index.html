@@ -6,13 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" herf="/way.html">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+    
     body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
-/* Navbar */
+    .container_input {
+        margin-left: 15px;
+        height: 100%;
+    }
+
+/* SideBar */
     ul {
         list-style-type: none;
         margin: 0;
@@ -25,31 +32,78 @@
       display: block;
       color: white;
       text-align: center;
-      padding: 14px 16px;
       text-decoration: none;
     }
     li a:hover { background-color: #111; }
 
     .row.content {
-        height: 600px;
+        height: 100%;
     }
     .sidenav {
+      margin-top: 5px;
       background-color: #f1f1f1;
-      height: 100%;
+      /*background-color: #565353;*/
+      height: 630px;
     }
 /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (
         max-width: 767px)
         {
          .sidenav {
-           height: auto;
-           padding: 15px;
+           height: 100%;
          }
          .row.content {
-             height: 550px;
-             /*height: 600px;*/
+             height: 100%;
          }
     }
+
+/* Add a dark background color with a little bit see-through */ 
+.navbar {
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color:#29292c !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+/* Dropdown */
+.open .dropdown-toggle {
+    color: #fff ;
+    background-color: #555 !important;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+    color: #000 !important;
+}
+
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+    background-color: red !important;
+}
+
 /* Select of KU gates and type */
 select {
   /* styling */
@@ -119,18 +173,68 @@ select.classic {
     .w3-red {
         height: 90px;
     }
-  </style>
+
+/* Add a dark background color to the footer */
+footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 15px;
+}
+
+footer a {
+    color: #f5f5f5;
+}
+
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+.show {
+    margin-top: 5px;
+}
+
+
+</style>
 </head>
 
-<body>
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-</ul>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<div class="container-fluid">
+<!-- Nav bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#way">WAY</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  <!--</div>-->
+</nav>
+
+<!-- Container of home -->
+<div id="home" class="waves">
+    <img class="img-responsive" src="bg.png"></img>
+</div>
+
+
+<!-- Container of way -->
+<div id="way" class="container_input">
   <div class="row content">
     <div class="col-sm-3 sidenav">
         <br/><img class="img-responsive" src="images/select_head.png"></img>
+        <a href="#way" class="btn btn-circle page-scroll">
+            <i class="fa fa-angle-double-down animated"></i>
+        </a>
         <br/>
 
         <!-- Road -->
@@ -163,21 +267,72 @@ select.classic {
                 <div class="panel panel-default text-center">
                     <div class="panel-body">
                         <p>Where do you want to go?</p>
-                        <!--<form class="glyphicon glyphicon-search"> f</form>-->
                         <form><input type="text"></form><br/>
                     </div>
                     <div class="panel-footer">
                         <button class="btn btn_submit" id="btn_submit">Submit!</button>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
-
     </div>
+    <div id="show" class="col-sm-9">
+        <br/><p>sdsdfsdf</p><hr>
+    </div>
+
   </div>
+  
+
+
+
+
 </div>
 
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br>
+</footer>
+
+
+
 </body>
+
+
+<script>
+// Footer
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+})
+
+//Smooth scrolling
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+  // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if 
+  });
+})
+
+</script>
 
 
 </html>
