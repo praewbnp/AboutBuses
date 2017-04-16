@@ -6,92 +6,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" herf="/way.html">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="JSfunction.js"></script>
   <style>
 
     body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
+    .container_input {
+        margin-left: 15px;
+        height: 100%;
+    }
 
-/* Navbar */
+/* SideBar */
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
         background-color: #333;
-    }   
+    }
     li { float: right; }
     li a {
       display: block;
       color: white;
       text-align: center;
-      padding: 14px 16px;
       text-decoration: none;
     }
     li a:hover { background-color: #111; }
 
     .row.content {
-        height: 510px;
+        height: 100%;
     }
     .sidenav {
+      margin-top: 5px;
       background-color: #f1f1f1;
-      height: 100%;
+      /*background-color: #565353;*/
+      height: 630px;
     }
-    
 /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (
-        max-width: 767px) 
+        max-width: 767px)
         {
          .sidenav {
-           height: auto;
-           padding: 15px;
+           height: 100%;
          }
          .row.content {
-             height: 550px;
-         } 
+             height: 100%;
+         }
     }
 
-/* Dropdown of KU gates and type */
-    .dropbtn {
-    background-color: gray;
-    color: white;
-    padding: 5px;
-    font-size: 14px;
-    border: none;
-    height: 35px;
-    width: 290px;
-    border-radius: 10px;
+/* Add a dark background color with a little bit see-through */
+.navbar {
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
 }
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 290px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    .dropdown-content a:hover {
-        background-color: #f1f1f1
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dropdown:hover .dropbtn {
-       background-color: #333
-    }
 
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand {
+    color: #d5d5d5 !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color:#29292c !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+/* Dropdown */
+.open .dropdown-toggle {
+    color: #fff ;
+    background-color: #555 !important;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+    color: #000 !important;
+}
+
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+    background-color: red !important;
+}
+
+/* Select of KU gates and type */
+select {
+  /* styling */
+  background-color: white;
+  border: thin ;
+  border-radius: 10px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  width: 100%;
+
+  /* reset */
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+/* arrows */
+select.classic {
+  background-image:
+    linear-gradient(45deg, transparent 50%, blue 50%),
+    linear-gradient(135deg, blue 50%, transparent 50%),
+    linear-gradient(to right, skyblue, skyblue);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  radius: 24px;
+}
 /* Submit button */
     .btn_submit {
         background-color: #4CAF50;
@@ -100,7 +150,6 @@
         width: 120px;
         border-radius: 10px;
     }
-
 /* Input field */
     input[type=text] {
     width: 100%;
@@ -109,70 +158,109 @@
     border-radius: 10px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 5px;
 }
-
 /* Hover panel */
     .panel {
-        border: 1px solid #ccc; 
+        /*border: 1px solid #ccc;*/
         border-radius: 5px !important;
         transition: box-shadow 0.5s;
     }
     .panel:hover {
         box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     }
-
     .w3-red {
         height: 90px;
     }
 
+/* Add a dark background color to the footer */
+footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 15px;
+}
 
-  </style>
+footer a {
+    color: #f5f5f5;
+}
+
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+.show {
+    margin-top: 5px;
+}
+
+
+</style>
 </head>
 
-<body>
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-</ul>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<div class="container-fluid">
+<!-- Nav bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#way">WAY</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  <!--</div>-->
+</nav>
+
+<!-- Container of home -->
+<div id="home" class="waves">
+    <img class="img-responsive" src="bg.png"></img>
+</div>
+
+
+<!-- Container of way -->
+<div id="way" class="container_input">
   <div class="row content">
     <div class="col-sm-3 sidenav">
         <br/><img class="img-responsive" src="images/select_head.png"></img>
+        <a href="#way" class="btn btn-circle page-scroll">
+            <i class="fa fa-angle-double-down animated"></i>
+        </a>
         <br/>
 
         <!-- Road -->
-        <div class="dropdown" id="btn_gate">
-            <button class="dropbtn">Select your KU gate</button>
-            <div class="dropdown-content">
-                <a href="#">Gate: Wibhawadi</a>
-                <a href="#">Gate: Ngamwongwan</a>
-                <a href="#">Gate: Phaholyothin</a>
-            </div>
-        </div><br/><br/>
+        <select class="classic" id="gate" onchange="setGate(this.value)">
+
+          <option value="gate_selecet">Select your KU gate</option>
+          <option value="Wipavadee">Wibhawadi</option>
+          <option value="Ngamwongwan">Ngamwongwan</option>
+          <option value="Phaholyothin">Phaholyothin</option>
+        </select><br/><br/>
 
         <!-- Type of bus -->
-        <div class="dropdown" id="btn_type">
-            <button class="dropbtn">Type of bus</button>
-            <div class="dropdown-content">
-                <a href="#">Air Condition</a>
-                <a href="#">Normal</a>
-            </div>
-        </div><br/><br/>
+        <select class="classic" id="bus_type" onchange="setType(this.value)">
+          <option value="type_selecet">Select type of bus</option>
+          <option value="Air">Air Condition</option>
+          <option value="Normal">Normal</option>
+        </select><br/><br/>
 
-        <!-- Name of country -->
-        <div class="dropdown" id="btn_type">
-            <button class="dropbtn">Country</button>
-            <div class="dropdown-content">
-                <a href="#">Bangkok</a>
-                <a href="#">Pathumthani</a>
-                <a href="#">Nontaburi</a>
-                <a href="#">Nakhon Pathom</a>
-            </div>
-        </div><br/><br/>
+        <!-- Name of province -->
+        <select class="classic" id="province" onchange="setProvince(this.value)">
+          <option value="province_selecet">Select destination province</option>
+          <option value="province_bangkok">Bangkok</option>
+          <option value="province_phatumtani">Pathumthani</option>
+          <option value="province_nontaburi">Nontaburi</option>
+        </select><br/><br/>
 
         <!-- In the panel -->
         <div class="container-fluid">
@@ -183,25 +271,69 @@
                         <form><input type="text"></form><br/>
                     </div>
                     <div class="panel-footer">
-                        <button class="btn btn_submit" id="btn_submit">Submit!</button>
+                        <button class="btn btn_submit" id="btn_submit" onclick="showTable()">Submit!</button>
                     </div>
-                </div>   
-            </div>   
-        </div>  
-
+                </div>
+            </div>
+        </div>
     </div>
+    <div id="show" class="col-sm-9">
+        <br/><p>sdsdfsdf</p><hr>
+    </div>
+
   </div>
+
+
+
+
+
 </div>
 
-<div class="w3-container w3-red">
-  <br/><img class="img-responsive" src="images/resources.png"></img>
-</div>
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br>
+</footer>
+
+
 
 </body>
 
+
 <script>
-	$('#searchlist').btsListFilter('#searchinput', {itemChild: 'span'});
+// Footer
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+})
+
+//Smooth scrolling
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+  // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+
 </script>
 
-</html>
 
+</html>
