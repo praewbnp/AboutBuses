@@ -171,6 +171,12 @@ select.classic {
     .panel:hover {
         box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     }
+    .panel-heading {
+      color: #fff !important;
+      background-color: #777 !important;
+      font-size: 20px;
+      height: 50px;
+  }
     .w3-red {
         height: 90px;
     }
@@ -193,11 +199,6 @@ footer a:hover {
 .show {
     margin-top: 5px;
 }
-
-p {
-    text-align: left;
-}
-
 
 </style>
 </head>
@@ -270,14 +271,30 @@ p {
         <div class="container-fluid">
             <div class="row slideanim">
                 <div class="panel panel-default text-center">
-                    <div class="panel-body">
-                        <p>TO</p>
-                        <form><input type="text"></form><br/>
+                    <div class="panel-heading">
+                        <p>FROM</p>
                     </div>
-                    
+                    <div class="panel-body">
+                        <p>fffff</p><br/>
+                    </div>
+                   
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row slideanim">
+                <div class="panel panel-default text-center">
+                   
+                    <div class="panel-heading">
+                        <p>TO</p>
+                    </div>
+                    <div class="panel-body">
+                        <p>fffff</p><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
          <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
     </div>
@@ -324,7 +341,7 @@ $(document).ready(function(){
     // Store hash
     var hash = this.hash;
 
-    // Using jQuery's animate() method to add smooth page scroll
+    // smooth page scroll
     // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
     $('html, body').animate({
       scrollTop: $(hash).offset().top
