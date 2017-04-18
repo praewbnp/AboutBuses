@@ -9,8 +9,9 @@
   <link rel="stylesheet" herf="/way.html">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="JSfunction.js"></script>
   <style>
-    
+
     body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
@@ -57,7 +58,7 @@
          }
     }
 
-/* Add a dark background color with a little bit see-through */ 
+/* Add a dark background color with a little bit see-through */
 .navbar {
     margin-bottom: 0;
     background-color: #2d2d30;
@@ -68,7 +69,7 @@
 }
 
 /* Add a gray color to all navbar links */
-.navbar li a, .navbar .navbar-brand { 
+.navbar li a, .navbar .navbar-brand {
     color: #d5d5d5 !important;
 }
 
@@ -146,7 +147,7 @@ select.classic {
         background-color: #4CAF50;
         color: white;
         height: 40px;
-        width: 120px;
+        width: 100%;
         border-radius: 10px;
     }
 /* Input field */
@@ -193,6 +194,10 @@ footer a:hover {
     margin-top: 5px;
 }
 
+p {
+    text-align: left;
+}
+
 
 </style>
 </head>
@@ -206,11 +211,11 @@ footer a:hover {
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Logo</a>
     </div>
-    
+
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#home">HOME</a></li>
@@ -238,23 +243,23 @@ footer a:hover {
         <br/>
 
         <!-- Road -->
-        <select class="classic" id="gate">
+        <select class="classic" id="gate" onchange="setGate(this.value)">
 
           <option value="gate_selecet">Select your KU gate</option>
-          <option value="gate_wibha">Wibhawadi</option>
-          <option value="gate_ngam">Ngamwongwan</option>
-          <option value="gate_phahol">Phaholyothin</option>
+          <option value="Wipavadee">Wibhawadi</option>
+          <option value="Ngamwongwan">Ngamwongwan</option>
+          <option value="Phaholyothin">Phaholyothin</option>
         </select><br/><br/>
 
         <!-- Type of bus -->
-        <select class="classic" id="bus_type">
+        <select class="classic" id="bus_type" onchange="setType(this.value)">
           <option value="type_selecet">Select type of bus</option>
-          <option value="type_air">Air Condition</option>
-          <option value="type_normal">Normal</option>
+          <option value="Air">Air Condition</option>
+          <option value="Normal">Normal</option>
         </select><br/><br/>
 
         <!-- Name of province -->
-        <select class="classic" id="province">
+        <select class="classic" id="province" onchange="setProvince(this.value)">
           <option value="province_selecet">Select destination province</option>
           <option value="province_bangkok">Bangkok</option>
           <option value="province_phatumtani">Pathumthani</option>
@@ -266,22 +271,22 @@ footer a:hover {
             <div class="row slideanim">
                 <div class="panel panel-default text-center">
                     <div class="panel-body">
-                        <p>Where do you want to go?</p>
+                        <p>TO</p>
                         <form><input type="text"></form><br/>
                     </div>
-                    <div class="panel-footer">
-                        <button class="btn btn_submit" id="btn_submit">Submit!</button>
-                    </div>
-                </div> 
+                    
+                </div>
             </div>
         </div>
+
+         <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
     </div>
     <div id="show" class="col-sm-9">
         <br/><p>sdsdfsdf</p><hr>
     </div>
 
   </div>
-  
+
 
 
 
@@ -302,7 +307,7 @@ footer a:hover {
 <script>
 // Footer
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
 })
 
 //Smooth scrolling
@@ -328,7 +333,7 @@ $(document).ready(function(){
       // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
-    } // End if 
+    } // End if
   });
 })
 
