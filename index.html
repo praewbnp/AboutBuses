@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" herf="/way.html">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="JSfunction.js"></script>
@@ -150,23 +149,13 @@ select.classic {
         width: 100%;
         border-radius: 10px;
     }
-/* Input field */
-    input[type=text] {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: white;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 5px;
-}
+
 /* Hover panel */
     .panel {
         /*border: 1px solid #ccc;*/
         border-radius: 5px !important;
         transition: box-shadow 0.5s;
+        opacity: 50%;
     }
     .panel:hover {
         box-shadow: 5px 0px 40px rgba(0,0,0, .2);
@@ -198,6 +187,38 @@ footer a:hover {
 }
 .show {
     margin-top: 5px;
+}
+
+/* check box type of bus */
+.square label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #fcfff4;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.square label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+.square input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
 }
 
 </style>
@@ -243,57 +264,82 @@ footer a:hover {
         </a>
         <br/>
 
-        <!-- Road -->
-        <select class="classic" id="gate" onchange="setGate(this.value)">
-
-          <option value="gate_selecet">Select your KU gate</option>
-          <option value="Wipavadee">Wibhawadi</option>
-          <option value="Ngamwongwan">Ngamwongwan</option>
-          <option value="Phaholyothin">Phaholyothin</option>
-        </select><br/><br/>
-
-        <!-- Type of bus -->
-        <select class="classic" id="bus_type" onchange="setType(this.value)">
-          <option value="type_selecet">Select type of bus</option>
-          <option value="Air">Air Condition</option>
-          <option value="Normal">Normal</option>
-        </select><br/><br/>
-
-        <!-- Name of province -->
-        <select class="classic" id="province" onchange="setProvince(this.value)">
-          <option value="province_selecet">Select destination province</option>
-          <option value="province_bangkok">Bangkok</option>
-          <option value="province_phatumtani">Pathumthani</option>
-          <option value="province_nontaburi">Nontaburi</option>
-        </select><br/><br/>
-
         <!-- In the panel -->
         <div class="container-fluid">
-            <div class="row slideanim">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <p>FROM</p>
+                    <div class="row slideanim">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <p>FROM</p>
+                            </div>
+                            <div class="panel-body">
+
+
+                              <!-- Road -->
+                              <select class="classic" id="gate_to" onchange="setGate(this.value)">
+
+                                <option value="gate_selecet">Select your KU gate</option>
+                                <option value="Wipavadee">Wibhawadi</option>
+                                <option value="Ngamwongwan">Ngamwongwan</option>
+                                <option value="Phaholyothin">Phaholyothin</option>
+                              </select><br/>
+
+
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <p>fffff</p><br/>
-                    </div>
-                   
                 </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row slideanim">
-                <div class="panel panel-default text-center">
-                   
-                    <div class="panel-heading">
-                        <p>TO</p>
-                    </div>
-                    <div class="panel-body">
-                        <p>fffff</p><br/>
+                <div class="container-fluid">
+                    <div class="row slideanim">
+                        <div class="panel panel-default text-center">
+
+                            <div class="panel-heading">
+                                <p>TO</p>
+                            </div>
+                            <div class="panel-body">
+
+
+                              <!-- Name of province -->
+                              <select class="classic" id="province" onchange="setProvince(this.value)">
+                                <option value="province_selecet">Select destination province</option>
+                                <option value="province_bangkok">Bangkok</option>
+                                <option value="province_phatumtani">Pathumthani</option>
+                                <option value="province_nontaburi">Nontaburi</option>
+                              </select><br/><br/>
+
+                              <!-- Station -->
+                              <select class="classic" id="bus_station" onchange="setProvince(this.value)">
+                                <option value="station_selecet">Select Bus Station</option>
+                              </select> <br/>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="container-fluid">
+                    <div class="row slideanim">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <p>OPTION</p>
+                            </div>
+                            <div class="panel-body">
+                              <!-- Squared THREE -->
+                              <div class="square">
+                              	<input type="checkbox" value="None" id="square_all" name="check" />
+                              	<label for="square">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
+
+                                <input type="checkbox" value="None" id="square_air" name="check" />
+                              	<label for="square">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
+
+                                <input type="checkbox" value="None" id="square_air" name="check" />
+                              	<label for="square">&nbsp;  Normal&nbsp;</label>
+                              </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
          <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
@@ -303,11 +349,6 @@ footer a:hover {
     </div>
 
   </div>
-
-
-
-
-
 </div>
 
 <footer class="text-center">
@@ -317,11 +358,11 @@ footer a:hover {
 </footer>
 
 
-
 </body>
 
 
 <script>
+
 // Footer
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
@@ -334,15 +375,10 @@ $(document).ready(function(){
 
   // Make sure this.hash has a value before overriding default behavior
   if (this.hash !== "") {
-
-    // Prevent default anchor click behavior
     event.preventDefault();
-
-    // Store hash
     var hash = this.hash;
-
+    
     // smooth page scroll
-    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
     $('html, body').animate({
       scrollTop: $(hash).offset().top
     }, 900, function(){
@@ -350,7 +386,7 @@ $(document).ready(function(){
       // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
-    } // End if
+    } 
   });
 })
 
