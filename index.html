@@ -64,7 +64,7 @@
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
-    opacity:0.9;
+    opacity:0.7;
 }
 
 /* Add a gray color to all navbar links */
@@ -175,6 +175,7 @@ footer {
     background-color: #2d2d30;
     color: #f5f5f5;
     padding: 15px;
+    opacity: 0.7;
 }
 
 footer a {
@@ -220,7 +221,19 @@ footer a:hover {
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
+.parallax {
+    /* The image used */
+    background-image: url("bg.png");
 
+    /* Set a specific height */
+    min-height: 800px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 </style>
 </head>
 
@@ -248,11 +261,8 @@ footer a:hover {
   <!--</div>-->
 </nav>
 
-<!-- Container of home -->
-<div id="home" class="waves">
-    <img class="img-responsive" src="bg.png"></img>
-</div>
 
+<div class="parallax"></div>
 
 <!-- Container of way -->
 <div id="way" class="container_input">
@@ -377,7 +387,7 @@ $(document).ready(function(){
   if (this.hash !== "") {
     event.preventDefault();
     var hash = this.hash;
-    
+
     // smooth page scroll
     $('html, body').animate({
       scrollTop: $(hash).offset().top
@@ -386,7 +396,7 @@ $(document).ready(function(){
       // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
-    } 
+    }
   });
 })
 
