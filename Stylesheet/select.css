@@ -1,5 +1,4 @@
     body {
-        background-image: url("/images/bg.png");
         font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
     .container_input {
@@ -11,7 +10,15 @@
         z-index: 10;
     }
 
-    *[hidden] { display: none; }
+    #target {
+        display: none;
+    }
+
+    .Hide {
+        display: none;
+    }  
+
+
 
 /* SideBar */
     ul {

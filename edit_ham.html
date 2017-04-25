@@ -11,6 +11,7 @@
   <script type="text/javascript" src="JSfunction.js"></script>
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
+  <link rel="images">
 </head>
 
 <!-- Container of home -->
@@ -41,35 +42,31 @@
         </div>
 
         <!-- Hamberger -->
+        <div class="toggle">
         <main>
-          <div class="nav-right hidden-xs" style="margin-top: 50px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 1;text-align: left;">
-            <div class="button" id="btn" onclick="showSidebar()">
+          <div class="nav-right hidden-xs" style="margin-top: 10px; margin-left: 1px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 9;text-align: left;">
+            <div class="button" id="btn">
               <div class="bar top"></div>
               <div class="bar middle"></div>
               <div class="bar bottom"></div>
             </div>
          </div>
       </main>
+        </div>
 
       </div>
     </nav>
   </div>
 
 
-<!-- Container of way -->
-<!--<main>
-    <div class="nav-right hidden-xs" style="margin-top: 50px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 1;text-align: left;">
-      <div class="button" id="btn">
-        <div class="bar top"></div>
-        <div class="bar middle"></div>
-        <div class="bar bottom"></div>
-      </div>
-    </div>
-</main>-->
 
+<!-- Container of way -->
 <div id="way">
-  
-  <div class="sidebar" hidden>
+      <img class="img-responsive" src="images/map.png"></img>
+
+
+  <div id="target">
+    <div class="sidebar">
   <ul class="sidebar-list">
 
     <!--From-->
@@ -129,10 +126,12 @@
 </div>
 </div>
 
+</div>
+
 
   <!--Footer-->
   <footer class="text-center">
-    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <a class="up-arrow" href="#home" data-toggle="tooltip" title="TO TOP">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a><br>
   </footer>
@@ -145,6 +144,7 @@
 
 
 <!--javaScript-->
+
 <script>
 
 // -------- Footer ----------
@@ -196,12 +196,20 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function() {
-  function showSidebar() {
-    <html></html>
-    $(".sidebar").toggleClass("active");
 
-  }
-})
+// -------- Show/hide Sidebar ----------
+$('.Show').click(function() {
+    $('#target').show(100);
+    $('.Show').hide(0);
+    $('.Hide').show(0);
+});
+$('.Hide').click(function() {
+    $('#target').hide(100);
+    $('.Show').show(0);
+    $('.Hide').hide(0);
+});
+$('.toggle').click(function() {
+    $('#target').toggle('slow');
+});
 
 </script>
