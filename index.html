@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" herf="/way.html">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="JSfunction.js"></script>
@@ -65,7 +64,7 @@
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
-    opacity:0.9;
+    opacity:0.7;
 }
 
 /* Add a gray color to all navbar links */
@@ -147,30 +146,26 @@ select.classic {
         background-color: #4CAF50;
         color: white;
         height: 40px;
-        width: 120px;
+        width: 100%;
         border-radius: 10px;
     }
-/* Input field */
-    input[type=text] {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: white;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 5px;
-}
+
 /* Hover panel */
     .panel {
         /*border: 1px solid #ccc;*/
         border-radius: 5px !important;
         transition: box-shadow 0.5s;
+        opacity: 50%;
     }
     .panel:hover {
         box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     }
+    .panel-heading {
+      color: #fff !important;
+      background-color: #777 !important;
+      font-size: 20px;
+      height: 50px;
+  }
     .w3-red {
         height: 90px;
     }
@@ -180,6 +175,7 @@ footer {
     background-color: #2d2d30;
     color: #f5f5f5;
     padding: 15px;
+    opacity: 0.7;
 }
 
 footer a {
@@ -194,12 +190,106 @@ footer a:hover {
     margin-top: 5px;
 }
 
+/* check box type of bus */
+.square label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #fcfff4;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.square label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+.square input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+.parallax {
+    /* The image used */
+    background-image: url("bg.png");
+
+    /* Set a specific height */
+    min-height: 800px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+/*Map-apge*/
+    .hamburger{
+    background:none;
+    position:absolute;
+    top:0;
+    right:0;
+    line-height:45px;
+    padding:5px 15px 0px 15px;
+    color:#999;
+    border:0;
+    font-size:1.4em;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+    }
+    .cross{
+    background:none;
+    position:absolute;
+    top:0px;
+    right:0;
+    padding:7px 15px 0px 15px;
+    color:#999;
+    border:0;
+    font-size:3em;
+    line-height:65px;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+    }
+    .menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
+    .menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
+    .menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+    .menu li:hover{display: block;    background:#ffffff; padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+    .menu ul li a { text-decoration:none;  margin: 0px; color:#666;}
+    .menu ul li a:hover {  color: #666; text-decoration:none;}
+    .menu a{text-decoration:none; color:#666;}
+    .menu a:hover{text-decoration:none; color:#666;}
+
+    .glyphicon-home{
+    color:white;
+    font-size:1.5em;
+    margin-top:5px;
+    margin:0 auto;
+    }
+
+
+    /*-----------------------------------------*/
 
 </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-
 <!-- Nav bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -214,19 +304,15 @@ footer a:hover {
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home">HOME</a></li>
+        <li><a href="#home" style="font-size: 20px;">HOME</a></li>
         <li><a href="#way">WAY</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
       </ul>
     </div>
-  <!--</div>-->
+  </div>
 </nav>
 
-<!-- Container of home -->
-<div id="home" class="waves">
-    <img class="img-responsive" src="bg.png"></img>
-</div>
-
+<div class="parallax"></div>
 
 <!-- Container of way -->
 <div id="way" class="container_input">
@@ -238,69 +324,109 @@ footer a:hover {
         </a>
         <br/>
 
-        <!-- Road -->
-        <select class="classic" id="gate" onchange="setGate(this.value)">
-
-          <option value="gate_selecet">Select your KU gate</option>
-          <option value="Wipavadee">Wibhawadi</option>
-          <option value="Ngamwongwan">Ngamwongwan</option>
-          <option value="Phaholyothin">Phaholyothin</option>
-        </select><br/><br/>
-
-        <!-- Type of bus -->
-        <select class="classic" id="bus_type" onchange="setType(this.value)">
-          <option value="type_selecet">Select type of bus</option>
-          <option value="Air">Air Condition</option>
-          <option value="Normal">Normal</option>
-        </select><br/><br/>
-
-        <!-- Name of province -->
-        <select class="classic" id="province" onchange="setProvince(this.value)">
-          <option value="province_selecet">Select destination province</option>
-          <option value="province_bangkok">Bangkok</option>
-          <option value="province_phatumtani">Pathumthani</option>
-          <option value="province_nontaburi">Nontaburi</option>
-        </select><br/><br/>
-
         <!-- In the panel -->
         <div class="container-fluid">
-            <div class="row slideanim">
-                <div class="panel panel-default text-center">
-                    <div class="panel-body">
-                        <p>Where do you want to go?</p>
-                        <form><input type="text"></form><br/>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn_submit" id="btn_submit" onclick="showTable()">Submit!</button>
+                    <div class="row slideanim">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <p>FROM</p>
+                            </div>
+                            <div class="panel-body">
+
+
+                              <!-- Road -->
+                              <select class="classic" id="gate_to" onchange="setGate(this.value)">
+
+                                <option value="gate_selecet">Select your KU gate</option>
+                                <option value="Wipavadee">Wibhawadi</option>
+                                <option value="Ngamwongwan">Ngamwongwan</option>
+                                <option value="Phaholyothin">Phaholyothin</option>
+                              </select><br/>
+
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="container-fluid">
+                    <div class="row slideanim">
+                        <div class="panel panel-default text-center">
+
+                            <div class="panel-heading">
+                                <p>TO</p>
+                            </div>
+                            <div class="panel-body">
+
+
+                              <!-- Name of province -->
+                              <select class="classic" id="province" onchange="setProvince(this.value)">
+                                <option value="province_selecet">Select destination province</option>
+                                <option value="Bangkok">Bangkok</option>
+                                <option value="Pathumtani">Pathumthani</option>
+                                <option value="Nonthaburi">Nonthaburi</option>
+                              </select><br/><br/>
+
+                              <!-- Station -->
+                              <div id="select_station_list">
+                                <select class="classic" id="bus_station" onchange="setProvince(this.value)">
+                                  <option value="station_selecet">Select Bus Station</option>
+                                </select> <br/>
+                              </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row slideanim">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <p>OPTION</p>
+                            </div>
+                            <div class="panel-body">
+                              <!-- Squared THREE -->
+                              <div class="square">
+                              	<input type="radio" value="All" id="square_all" name="check" onclick="setType(this.value)" checked="checked"/>
+                              	<label for="square">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
+
+                                <input type="radio" value="Air" id="square_air" name="check" onclick="setType(this.value)"/>
+                              	<label for="square">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
+
+                                <input type="radio" value="Normal" id="square_air" name="check" onclick="setType(this.value)" />
+                              	<label for="square">&nbsp;  Normal&nbsp;</label>
+                              </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
     </div>
     <div id="show" class="col-sm-9">
         <br/><p>sdsdfsdf</p><hr>
+            <br/><p>sdsdfsdf</p><hr>
     </div>
 
   </div>
-
-
-
-
-
 </div>
 
-<footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br>
-</footer>
-
-
-
+ <!--fotter-->
+    <footer class="text-center">
+        <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br>
+    </footer>
 </body>
 
 
+
+
+
+
 <script>
+
 // Footer
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
@@ -313,15 +439,10 @@ $(document).ready(function(){
 
   // Make sure this.hash has a value before overriding default behavior
   if (this.hash !== "") {
-
-    // Prevent default anchor click behavior
     event.preventDefault();
-
-    // Store hash
     var hash = this.hash;
 
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    // smooth page scroll
     $('html, body').animate({
       scrollTop: $(hash).offset().top
     }, 900, function(){
@@ -329,7 +450,7 @@ $(document).ready(function(){
       // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
-    } // End if
+    }
   });
 })
 
