@@ -64,7 +64,7 @@
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
-    opacity:0.7;
+    opacity:0.9;
 }
 
 /* Add a gray color to all navbar links */
@@ -175,7 +175,6 @@ footer {
     background-color: #2d2d30;
     color: #f5f5f5;
     padding: 15px;
-    opacity: 0.7;
 }
 
 footer a {
@@ -221,75 +220,12 @@ footer a:hover {
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
-.parallax {
-    /* The image used */
-    background-image: url("bg.png");
-
-    /* Set a specific height */
-    min-height: 800px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-
-/*Map-apge*/
-    .hamburger{
-    background:none;
-    position:absolute;
-    top:0;
-    right:0;
-    line-height:45px;
-    padding:5px 15px 0px 15px;
-    color:#999;
-    border:0;
-    font-size:1.4em;
-    font-weight:bold;
-    cursor:pointer;
-    outline:none;
-    z-index:10000000000000;
-    }
-    .cross{
-    background:none;
-    position:absolute;
-    top:0px;
-    right:0;
-    padding:7px 15px 0px 15px;
-    color:#999;
-    border:0;
-    font-size:3em;
-    line-height:65px;
-    font-weight:bold;
-    cursor:pointer;
-    outline:none;
-    z-index:10000000000000;
-    }
-    .menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
-    .menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
-    .menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
-    .menu li:hover{display: block;    background:#ffffff; padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
-    .menu ul li a { text-decoration:none;  margin: 0px; color:#666;}
-    .menu ul li a:hover {  color: #666; text-decoration:none;}
-    .menu a{text-decoration:none; color:#666;}
-    .menu a:hover{text-decoration:none; color:#666;}
-
-    .glyphicon-home{
-    color:white; 
-    font-size:1.5em; 
-    margin-top:5px; 
-    margin:0 auto;
-    }
-
-
-    /*-----------------------------------------*/
 
 </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
 <!-- Nav bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -304,15 +240,19 @@ footer a:hover {
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home" style="font-size: 20px;">HOME</a></li>
+        <li><a href="#home">HOME</a></li>
         <li><a href="#way">WAY</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
       </ul>
     </div>
-  </div>
+  <!--</div>-->
 </nav>
 
-<div class="parallax"></div>
+<!-- Container of home -->
+<div id="home" class="waves">
+    <img class="img-responsive" src="bg.png"></img>
+</div>
+
 
 <!-- Container of way -->
 <div id="way" class="container_input">
@@ -400,27 +340,25 @@ footer a:hover {
                         </div>
                     </div>
                 </div>
+
+
          <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
     </div>
     <div id="show" class="col-sm-9">
         <br/><p>sdsdfsdf</p><hr>
-            <br/><p>sdsdfsdf</p><hr>
     </div>
 
   </div>
 </div>
 
- <!--fotter-->
-    <footer class="text-center">
-        <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-        </a><br>
-    </footer>
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br>
+</footer>
+
+
 </body>
-
-
-
-
 
 
 <script>
@@ -439,7 +377,7 @@ $(document).ready(function(){
   if (this.hash !== "") {
     event.preventDefault();
     var hash = this.hash;
-
+    
     // smooth page scroll
     $('html, body').animate({
       scrollTop: $(hash).offset().top
@@ -448,7 +386,7 @@ $(document).ready(function(){
       // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
-    }
+    } 
   });
 })
 

@@ -13,37 +13,51 @@
   <link href="Stylesheet/select.css" rel="stylesheet">
 </head>
 
+<!-- Container of home -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div id="home" class="waves">
+    <img class="img-responsive" src="bg.png"></img>
+</div>
 
-<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
-   <img class="img-responsive" src="bg.png"></img>
-<!-- Nav bar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
+  <!-- Nav bar -->
+  <div class="parallax">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Logo</a>
+        </div>
 
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#way">WAY</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#way">WAY</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+          </ul>
+        </div>
+
+        <!-- Hamberger -->
+        <main>
+          <div class="nav-right hidden-xs" style="margin-top: 50px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 1;text-align: left;">
+            <div class="button" id="btn" onclick="showSidebar()">
+              <div class="bar top"></div>
+              <div class="bar middle"></div>
+              <div class="bar bottom"></div>
+            </div>
+         </div>
+      </main>
+
+      </div>
+    </nav>
   </div>
-</nav>
 
-<div class="parallax"></div>
 
-<!-- nav-right -->
-<div id="way" class="container_input">
-<main>
-  <nav id="way">
+<!-- Container of way -->
+<!--<main>
     <div class="nav-right hidden-xs" style="margin-top: 50px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 1;text-align: left;">
       <div class="button" id="btn">
         <div class="bar top"></div>
@@ -51,18 +65,18 @@
         <div class="bar bottom"></div>
       </div>
     </div>
-    <!-- nav-right -->
-  </nav>
-</main>
+</main>-->
 
-<div class="sidebar">
+<div id="way">
+  
+  <div class="sidebar" hidden>
   <ul class="sidebar-list">
 
     <!--From-->
     <div class="row">
     <div class="sidebar-item"> 
-      <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 40px;">SELECT YOUR WAY!</label></br>
-      <label class="slidebar-item sidebar-anchor" style="font-size: 30px; text-align: center;">From</label><br/>                          
+      <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 35px;">SELECT YOUR WAY!</label></br>
+      <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">From</label><br/>                          
       <select class="classic" id="gate_to" onchange="setGate(this.value)">
         <option value="gate_selecet">Select your KU gate</option>
         <option value="Wipavadee">Wibhawadi</option>
@@ -74,7 +88,7 @@
     <!--To-->
     <div class="row">
     <div class="sidebar-item">   
-      <label class="slidebar-item sidebar-anchor" style="font-size: 30px; text-align: center;">To</label><br/>                                                       
+      <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>                                                       
       <select class="classic" id="province" onchange="setProvince(this.value)">
         <option value="province_selecet">Select destination province</option>
         <option value="province_bangkok">Bangkok</option>
@@ -92,7 +106,7 @@
     <!--option-->
     <div class="row">
     <div class="sidebar-item">   
-      <label class="slidebar-item sidebar-anchor" style="font-size: 30px; text-align: center;">Option</label><br/>                                                       
+      <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>                                                       
         <div class="panel-body">
 
           <!-- Squared THREE -->
@@ -109,7 +123,6 @@
         </div>
     </div></div>
     <div class="sidebar-item"> 
-      <!--<label style=" margin-bottom: 40px; color: white;">----------------------------------------------------</label> -->
       <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
     </div>
   </ul>
@@ -123,6 +136,8 @@
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a><br>
   </footer>
+
+
 </body>
 </html>
 
@@ -179,4 +194,14 @@ $(document).ready(function(){
     }
   });
 });
+
+
+$(document).ready(function() {
+  function showSidebar() {
+    <html></html>
+    $(".sidebar").toggleClass("active");
+
+  }
+})
+
 </script>
