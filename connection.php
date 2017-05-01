@@ -2,7 +2,7 @@
   function connect() {
     $user = "root";
     $pass = "";
-    $db = "aboutbus";
+    $db = "aboutbuses";
 
     $connection = mysqli_connect( "localhost", $user, $pass, $db );
 
