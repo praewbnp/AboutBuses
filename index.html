@@ -218,4 +218,14 @@ $('.toggle').click(function() {
     $('#target').toggle('slow');
 });
 
+
+
+// -------- Checkbox one time only ----------
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+})
+$('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
+
 </script>
