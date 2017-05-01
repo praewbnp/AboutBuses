@@ -87,34 +87,40 @@
       <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>                                                       
       <select class="classic" id="province" onchange="setProvince(this.value)">
         <option value="province_selecet">Select destination province</option>
-        <option value="province_bangkok">Bangkok</option>
-        <option value="province_phatumtani">Pathumthani</option>
-        <option value="province_nontaburi">Nontaburi</option>
+         <option value="Bangkok">Bangkok</option>
+ +       <option value="Pathumtani">Pathumthani</option>
+ +       <option value="Nonthaburi">Nonthaburi</option>
       </select><br/>
     </div></div>
     <div class="row">
-    <div class="sidebar-item">                              
-      <select class="classic" id="bus_station" onchange="setProvince(this.value)">
-        <option value="station_selecet">Select Bus Station</option>
-      </select> <br/>
-    </div></div>
+      <div id="select_station_list">                            
+
+      <div class="sidebar-item">  
+        <select class="classic" id="bus_station" onchange="setProvince(this.value)">
+          <option value="station_selecet">Select Bus Station</option>
+        </select> <br/>
+      </div>
+    </div>
+
+  </div>
+    
 
     <!--option-->
     <div class="row">
     <div class="sidebar-item">   
       <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>                                                       
-        <div class="panel-body">
+        <div class="panel-body" id="checkbox">
 
           <!-- Squared THREE -->
           <div class="square" style="padding: 0px;" style="color: white">
             <input type="checkbox" value="None" id="square_all" name="check" />
-            <label for="square">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
+            <label for="square" style="color: white">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
 
             <input type="checkbox" value="None" id="square_air" name="check" />
-            <label for="square">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
+            <label for="square" style="color: white">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
 
             <input type="checkbox" value="None" id="square_air" name="check" />
-            <label for="square">&nbsp;  Normal&nbsp;</label>
+            <label for="square" style="color: white">&nbsp;  Normal&nbsp;</label>
           </div>
         </div>
     </div></div>

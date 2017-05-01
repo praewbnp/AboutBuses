@@ -1,7 +1,7 @@
 var gate = "";
-var type = "";
+var type = "All";
 var province = "";
-//var station = ""; not yet needed
+var stationID = "";
 
 function setGate(ngate) {
   gate = ngate;
@@ -13,10 +13,11 @@ function setType(ntype) {
 
 function setProvince(nprovince) {
   province = nprovince;
+  getStationList(nprovince);
 }
 
 function setStation(nstation) {
-  station = nstation;
+  stationID = nstation;
 }
 
 function showTable() {
@@ -25,9 +26,22 @@ function showTable() {
   url: "getTable.php",
   cache: false,
   dataType: "html",
-  data: { gate: gate, type: type, province: province },
+  data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
     $("#show").html(data);
+  }
+});
+}
+
+function getStationList(val) {
+  $.ajax({
+  method: "POST",
+  url: "getStationListFromProvinceChoice.php",
+  cache: false,
+  dataType: "html",
+  data: { province: val },
+  success: function( data, status, jqXHR ) {
+    $("#select_station_list").html(data);
   }
 });
 }
