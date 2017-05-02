@@ -123,6 +123,10 @@ nav {
   padding-top: 10px;
 }
 
+.checkbox {
+  color: white;
+}
+
 .sidebar-list {
   padding: 0;
   margin: 0;

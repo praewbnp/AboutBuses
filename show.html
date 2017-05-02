@@ -11,6 +11,7 @@
   <script type="text/javascript" src="JSfunction.js"></script>
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
+  <link href="Stylesheet/see.css" rel="stylesheet">
   <link rel="images">
 </head>
 
@@ -60,15 +61,8 @@
 
 
 <!-- Container of way -->
-<div style= "height: 750px;"id="way">
-
-    <img  style="height: 100%; weight: 100%; padding-top: 100px; padding-bottom: 100px;" src="images/map.png"></img>
-      <input style="position:absolute;left:400px;top:800px;" type="radio">sawadee</input>
-      <input style="position:absolute;left:90px;top:25px;" type="radio">sawadee</input>
-      <input style="position:absolute;left:90px;top:30px;" type="radio">sawadee</input>
-      <input style="position:absolute;left:90px;top:35px;" type="radio">sawadee</input>
-      <input style="position:absolute;left:90px;top:40px;" type="radio">sawadee</input>
-
+<div id="way">
+      <img class="img-responsive" src="images/map.png"></img>
 
 
   <div id="target">
@@ -80,7 +74,7 @@
     <div class="sidebar-item"> 
       <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 35px;">SELECT YOUR WAY!</label></br>
       <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">From</label><br/>                          
-      <select class="classic" id="gate_to" onchange="setGate(this.value)">
+      <select class="selectholder" id="gate_to" onchange="setGate(this.value)">
         <option value="gate_selecet">Select your KU gate</option>
         <option value="Wipavadee">Wibhawadi</option>
         <option value="Ngamwongwan">Ngamwongwan</option>
@@ -94,41 +88,34 @@
       <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>                                                       
       <select class="classic" id="province" onchange="setProvince(this.value)">
         <option value="province_selecet">Select destination province</option>
-         <option value="Bangkok">Bangkok</option>
- +       <option value="Pathumtani">Pathumthani</option>
- +       <option value="Nonthaburi">Nonthaburi</option>
+        <option value="province_bangkok">Bangkok</option>
+        <option value="province_phatumtani">Pathumthani</option>
+        <option value="province_nontaburi">Nontaburi</option>
       </select><br/>
     </div></div>
-
-    <div id="select_station_list">
     <div class="row">
-      <div class="sidebar-item">  
-        <select class="classic" id="bus_station" onchange="setProvince(this.value)">
-          <option value="station_selecet">Select Bus Station</option>
-        </select> <br/>
-      </div>
-    </div>
-
-  </div>
-    
+    <div class="sidebar-item">                              
+      <select class="classic" id="bus_station" onchange="setProvince(this.value)">
+        <option value="station_selecet">Select Bus Station</option>
+      </select> <br/>
+    </div></div>
 
     <!--option-->
-
     <div class="row">
     <div class="sidebar-item">   
       <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>                                                       
-        <div class="panel-body" id="checkbox">
+        <div class="panel-body">
 
           <!-- Squared THREE -->
           <div class="square" style="padding: 0px;" style="color: white">
             <input type="checkbox" value="None" id="square_all" name="check" />
-            <label for="square" style="color: white">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
+            <label for="square">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
 
             <input type="checkbox" value="None" id="square_air" name="check" />
-            <label for="square" style="color: white">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
+            <label for="square">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
 
             <input type="checkbox" value="None" id="square_air" name="check" />
-            <label for="square" style="color: white">&nbsp;  Normal&nbsp;</label>
+            <label for="square">&nbsp;  Normal&nbsp;</label>
           </div>
         </div>
     </div></div>
@@ -223,16 +210,6 @@ $('.Hide').click(function() {
 });
 $('.toggle').click(function() {
     $('#target').toggle('slow');
-});
-
-
-
-// -------- Checkbox one time only ----------
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
-$('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 
 </script>
