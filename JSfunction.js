@@ -21,17 +21,21 @@ function setStation(nstation) {
 }
 
 function showTable() {
-  $.ajax({
-  method: "POST",
-  url: "getTable.php",
-  cache: false,
-  dataType: "html",
-  data: { gate: gate, type: type, province: province, station: stationID },
-  success: function( data, status, jqXHR ) {
-    console.log(data);
-    $("#show").html(data);
+
+  if(gate == "" && province != "") {
+    alert("Please select your KU gate.");
+  } else {
+    $.ajax({
+      method: "POST",
+      url: "getTable.php",
+      cache: false,
+      dataType: "html",
+      data: { gate: gate, type: type, province: province, station: stationID },
+      success: function( data, status, jqXHR ) {
+        $("#show").html(data);
+      }
+    });
   }
-});
 }
 
 function getStationList(val) {

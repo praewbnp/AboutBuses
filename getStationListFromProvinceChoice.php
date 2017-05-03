@@ -13,7 +13,7 @@ $sql = "SELECT DISTINCT StationName, StationID FROM Station WHERE Province = '$p
 $result = mysqli_query($connection, $sql);
 $select = "";
 $select .= "<select class='classic' id='bus_station' onchange='setStation(this.value)'>";
-$select .= "<option value=station select>Select Bus Station</option>";
+$select .= "<option value=''>Select Bus Station</option>";
 $table=[];
 $list=[];
 
