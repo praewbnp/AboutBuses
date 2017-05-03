@@ -26,7 +26,6 @@
     <img class="img-responsive" src="bg.png"></img>
   </div>
 
-
 <!-- Nav bar and Hamberger -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -43,7 +42,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#home">HOME</a></li>
             <li><a href="#way">WAY</a></li>
-            <li><a href="#login"><span class="glyphicon glyphicon-lock"></span></a></li>
+            <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalLogin" style="padding:8px; margin:4px; background-color: gray; border-color: gray; width: 37px;"><a href="#login"><span class="glyphicon glyphicon-lock" style="padding: 1px;"></span></a></button></li>
           </ul>
         </div>
 
@@ -140,13 +139,13 @@
       </ul>
     </div>
 
-    <!-- Modal dialog -->
+    <!-- Modal dialog show table -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title">ABOUT BUSES</h2>
+            <h2 class="modal-title" style="">ABOUT BUSES</h2>
           </div>
           <div class="modal-body" id="show">
             <p></p>
@@ -155,9 +154,27 @@
       </div>
     </div>
 
+
   </div>
 </div>
 
+  <!-- Modal dialog show login-->
+  <div class="modal fade" id="modalLogin" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">LOG IN</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a small modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!--Footer-->
   <footer class="text-center">
@@ -236,4 +253,16 @@ $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
