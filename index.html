@@ -9,13 +9,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="JSfunction.js"></script>
+  <script type="text/javascript" src="change-map.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
-  <link href="Stylesheet/map-img.css" rel="stylesheet">
+  <link href="Stylesheet/component.css" rel="stylesheet">
   <link rel="images">
 </head>
 
@@ -77,7 +78,19 @@
 <!-- Container of way -->
 <div class="padding" id="way">
       <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
-      <button id="btn24" onclick="changeMap24()">24</button>
+      
+      <div style="text-align: center;"> 
+        <div class="container-way">
+          <button id="button" onclick="changeMap24()">24</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap29()">29</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap39()">39</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap59()">59</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap104()">104</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap510()">510</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMapAll()">All</button>
+        </div>
+    </div>
+
   <div id="target">
     <div class="sidebar">
       <ul class="sidebar-list">
@@ -147,7 +160,10 @@
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
       </div>
 
-    <!-- Modal dialog -->
+  </div>
+</div>
+
+<!-- Modal dialog -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -161,8 +177,8 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+
 
 
   <!--Footer-->
@@ -251,7 +267,4 @@ $('input[type="checkbox"]').on('change', function() {
 });
 
 
-function changeMap24() {
-  $("#way-bg").attr("src","24.png");
-}
 </script>
