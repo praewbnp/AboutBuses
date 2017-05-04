@@ -36,6 +36,18 @@
     <img class="img-responsive" src="bg.png"></img>
   </div>
 
+  <!-- pop-place -->
+  <div>
+    <div class="row">
+      <button onclick="showBusTable();return false" id="cenLad">place</button>
+      <div id="btb">
+        <p id="pre_text">
+          hello!
+        </p>
+      </div>
+    </div>
+  </div>
+
 <!-- Nav bar and Hamberger -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -179,7 +191,7 @@
 
 <!-- javaScript -->
 <script>
-
+$('#btb').hide();
 // -------- Footer ----------
 // $(document).ready(function(){
 //     $('[data-toggle="tooltip"]').tooltip();
@@ -208,6 +220,12 @@ function scrollToTop() {
     timeOut=setTimeout('scrollToTop()',10);
   }
   else clearTimeout(timeOut);
+}
+
+function showBusTable() {
+  // $('#btb').hide();
+  $('#btb').show();
+  document.getElementById("pre_text").innerHTML = "NOt things"+"    "+"hello\nwhat are you waiting for \n let go with us!!!!";
 }
 
 
