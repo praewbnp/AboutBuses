@@ -43,6 +43,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#home">HOME</a></li>
             <li><a href="#way">WAY</a></li>
+            <li><a href="ShowInfo.html">INFO</a></li>
             <li><a href="#login"><span class="glyphicon glyphicon-lock"></span></a></li>
           </ul>
         </div>
@@ -136,27 +137,16 @@
       <div class="sidebar-item">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
       </div>
-      <!-- show details -->
-      <div class="sidebar-item">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">details</button>
-      </div>
-      <div class="sidebar-item">
-        <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">More informations</button>
-      </div>
-      </ul>
-    </div>
-
   </div>
 </div>
 
 
   <!--Footer-->
   <footer class="text-center">
-    <a class="up-arrow" href="#home" data-toggle="tooltip" title="TO TOP">
+    <a class="up-arrow" href="#home" onclick="scrollToTop();return false">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a><br>
   </footer>
-
 </body>
 </html>
 
@@ -167,14 +157,14 @@
 <script>
 
 // -------- Footer ----------
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
+// $(document).ready(function(){
+//     $('[data-toggle="tooltip"]').tooltip();
+// })
 
 //Smooth scrolling
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+  $(".navbar a, footer a,[href='#myPage']").on('click', function(event) {
   if (this.hash !== "") {
     event.preventDefault();
     var hash = this.hash;
@@ -186,6 +176,15 @@ $(document).ready(function(){
     }
   });
 })
+
+var timeOut;
+function scrollToTop() {
+  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+    window.scrollBy(0,-5);
+    timeOut=setTimeout('scrollToTop()',10);
+  }
+  else clearTimeout(timeOut);
+}
 
 
 // -------- Search ----------
