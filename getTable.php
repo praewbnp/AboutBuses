@@ -1,3 +1,28 @@
+<html>
+<head>
+    <style type="text/css">
+    table {
+        margin: 8px;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+    }
+    th {
+          width: 300px;
+          background-color: #2d2d30; 
+          color: white;
+          padding: 2px;
+          font-size:1.1em;
+    }
+    td {
+          background-color: f5f5f5;
+          color: black;
+          padding: 2px;
+          font-size: 1em;
+    }
+    </style>
+</head>
+<body>
+
 <?php
    include 'connection.php';
    $gate = $_POST['gate'];
@@ -62,3 +87,6 @@
   echo $table;
   disconnect( $connection );
  ?>
+
+</body>
+</html>
