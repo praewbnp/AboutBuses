@@ -16,8 +16,19 @@
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
   <link href="Stylesheet/login.css" rel="stylesheet">
+
   <link rel="images">
 </head>
+
+<style>
+#way {
+    background-image: url("./images/map.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 800px;
+
+}
+</style>
 
 
 
@@ -27,7 +38,6 @@
   <div id="home" class="waves">
     <img class="img-responsive" src="bg.png"></img>
   </div>
-
 
 <!-- Nav bar and Hamberger -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -45,6 +55,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#home">HOME</a></li>
             <li><a href="#way">WAY</a></li>
+            <li><a href="ShowInfo.html">INFO</a></li>
             <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-login" style="padding:8px; margin:4px; background-color: gray; border-color: gray; width: 37px;"><a href="#login"><span class="glyphicon glyphicon-lock" style="padding: 1px;"></span></a></button></li>
           </ul>
         </div>
@@ -67,9 +78,9 @@
 
 
 <!-- Container of way -->
-<div id="way">
-  <img class="img-responsive" src="map.jpg"></img>
-
+<div class="padding" id="way">
+      <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
+      <button id="btn24" onclick="changeMap24()">24</button>
   <div id="target">
     <div class="sidebar">
       <ul class="sidebar-list">
@@ -139,9 +150,6 @@
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
       </div>
 
-      </ul>
-    </div>
-
     <!-- Modal dialog -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">
@@ -156,7 +164,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -330,12 +337,11 @@
 
 
   <!--Footer-->
-<footer class="text-center">
-    <a class="up-arrow" href="#home" data-toggle="tooltip" title="TO TOP">
+  <footer class="text-center">
+    <a class="up-arrow" href="#home" onclick="scrollToTop();return false">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a><br>
-</footer>
-
+  </footer>
 </body>
 </html>
 
@@ -346,14 +352,14 @@
 <script>
 
 // -------- Footer ----------
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
+// $(document).ready(function(){
+//     $('[data-toggle="tooltip"]').tooltip();
+// })
 
 //Smooth scrolling
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+  $(".navbar a, footer a,[href='#myPage']").on('click', function(event) {
   if (this.hash !== "") {
     event.preventDefault();
     var hash = this.hash;
@@ -365,6 +371,15 @@ $(document).ready(function(){
     }
   });
 })
+
+var timeOut;
+function scrollToTop() {
+  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+    window.scrollBy(0,-5);
+    timeOut=setTimeout('scrollToTop()',10);
+  }
+  else clearTimeout(timeOut);
+}
 
 
 // -------- Search ----------
@@ -406,4 +421,8 @@ $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 
+
+function changeMap24() {
+  $("#way-bg").attr("src","24.png");
+}
 </script>
