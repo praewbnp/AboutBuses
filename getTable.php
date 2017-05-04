@@ -8,7 +8,7 @@
     }
     th {
           width: 300px;
-          background-color: #2d2d30; 
+          background-color: #2d2d30;
           color: white;
           padding: 2px;
           font-size:1.1em;
