@@ -26,3 +26,6 @@ function changeMap510() {
 function changeMapAll() {
   $("#way-bg").attr("src","./images/bus/allbuses.png");
 }
+
+
+

@@ -16,7 +16,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
-  <link href="Stylesheet/button.css" rel="stylesheet">
+  <link href="Stylesheet/component.css" rel="stylesheet">
   <link rel="images">
 </head>
 
@@ -81,13 +81,13 @@
       
       <div style="text-align: center;"> 
         <div class="container-way">
-          <button id="button btn24" onclick="changeMap24()">24</button><span>&nbsp;</span>
-          <button id="button btn29" onclick="changeMap29()">29</button><span>&nbsp;</span>
-          <button id="button btn39" onclick="changeMap39()">39</button><span>&nbsp;</span>
-          <button id="button btn59" onclick="changeMap59()">59</button><span>&nbsp;</span>
-          <button id="button btn104" onclick="changeMap104()">104</button><span>&nbsp;</span>
-          <button id="button btn510" onclick="changeMap510()">510</button><span>&nbsp;</span>
-          <button id="button btnAll" onclick="changeMapAll()">All</button>
+          <button id="button" onclick="changeMap24()">24</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap29()">29</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap39()">39</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap59()">59</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap104()">104</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap510()">510</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMapAll()">All</button>
         </div>
     </div>
 
@@ -160,7 +160,10 @@
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
       </div>
 
-    <!-- Modal dialog -->
+  </div>
+</div>
+
+<!-- Modal dialog -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -174,8 +177,8 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+
 
 
   <!--Footer-->
@@ -252,6 +255,15 @@ $('.Hide').click(function() {
 });
 $('.toggle').click(function() {
     $('#target').toggle('slow');
+});
+
+
+// -------- Checkbox one time only ----------
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+})
+$('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 
 
