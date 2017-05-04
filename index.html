@@ -81,13 +81,13 @@
       
       <div style="text-align: center;"> 
         <div class="container-way">
-          <button id="button" onclick="changeMap24()">24</button><span>&nbsp;</span>
-          <button id="button" onclick="changeMap29()">29</button><span>&nbsp;</span>
-          <button id="button" onclick="changeMap39()">39</button><span>&nbsp;</span>
-          <button id="button" onclick="changeMap59()">59</button><span>&nbsp;</span>
-          <button id="button" onclick="changeMap104()">104</button><span>&nbsp;</span>
-          <button id="button" onclick="changeMap510()">510</button><span>&nbsp;</span>
-          <button id="button" onclick="changeMapAll()">All</button>
+          <button id="button btn24" onclick="changeMap24()">24</button><span>&nbsp;</span>
+          <button id="button btn29" onclick="changeMap29()">29</button><span>&nbsp;</span>
+          <button id="button btn39" onclick="changeMap39()">39</button><span>&nbsp;</span>
+          <button id="button btn59" onclick="changeMap59()">59</button><span>&nbsp;</span>
+          <button id="button btn104" onclick="changeMap104()">104</button><span>&nbsp;</span>
+          <button id="button btn510" onclick="changeMap510()">510</button><span>&nbsp;</span>
+          <button id="button btnAll" onclick="changeMapAll()">All</button>
         </div>
     </div>
 
@@ -252,15 +252,6 @@ $('.Hide').click(function() {
 });
 $('.toggle').click(function() {
     $('#target').toggle('slow');
-});
-
-
-// -------- Checkbox one time only ----------
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
-$('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 
 
