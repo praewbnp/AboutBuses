@@ -15,9 +15,19 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
-  <link href="Stylesheet/modal.css" rel="stylesheet">
+  <link href="Stylesheet/map-img.css" rel="stylesheet">
   <link rel="images">
 </head>
+
+<style>
+#way {
+    background-image: url("./images/map.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 800px;
+
+}
+</style>
 
 
 <!-- Container of home -->
@@ -25,7 +35,6 @@
   <div id="home" class="waves">
     <img class="img-responsive" src="bg.png"></img>
   </div>
-
 
 <!-- Nav bar and Hamberger -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -66,9 +75,9 @@
 
 
 <!-- Container of way -->
-<div id="way">
-  <img class="img-responsive" src="map.jpg"></img>
-
+<div class="padding" id="way">
+      <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
+      <button id="btn24" onclick="changeMap24()">24</button>
   <div id="target">
     <div class="sidebar">
       <ul class="sidebar-list">
@@ -137,6 +146,21 @@
       <div class="sidebar-item">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
       </div>
+
+    <!-- Modal dialog -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">ABOUT BUSES</h2>
+          </div>
+          <div class="modal-body" id="show">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -226,4 +250,8 @@ $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 
+
+function changeMap24() {
+  $("#way-bg").attr("src","24.png");
+}
 </script>
