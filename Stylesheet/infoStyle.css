@@ -15,6 +15,12 @@ html, body{
   height: 100%;
 }
 
+.bg-set {
+  margin: 0;
+  background-color: #BC8F8F;
+    /*background-image: url("images/character/bg-more-info.png");*/
+}
+
 .show-info{
   margin: 0;
   padding: 0;
@@ -26,10 +32,14 @@ html, body{
   text-align: center;
 }
 
+.row-info-bottom {
+  padding-bottom: 50px;
+}
+
 .detail-info {
   margin-left: 250px;
   margin-right: 50px;
-  color: #5a5a5a;
+  color: #fff;
 }
 
 .hero{
@@ -169,16 +179,22 @@ figure:hover img{
 
 .moving-bus{
   padding-top:100px;
-  background: #ece7c2;
+  /*background: #FFFAFA;*/
+  background: #ECDBD2;
  overflow-x: hidden;
 }
 #road{
   width: auto;
   height: 80px;
   background-color:gray;
-  margin:55px 0px 0 0px;
+  margin:0;
   clear:both;
   border-radius:2px;
+}
+
+.town {
+  height: 50px;
+  width: auto;
 }
 
 /*#tree{
