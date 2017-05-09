@@ -9,452 +9,257 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="JSfunction.js"></script>
-  <style>
+  <script type="text/javascript" src="change-map.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    body {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    }
-    .container_input {
-        margin-left: 15px;
-        height: 100%;
-    }
-
-/* SideBar */
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-    li { float: right; }
-    li a {
-      display: block;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-    }
-    li a:hover { background-color: #111; }
-
-    .row.content {
-        height: 100%;
-    }
-    .sidenav {
-      margin-top: 5px;
-      background-color: #f1f1f1;
-      /*background-color: #565353;*/
-      height: 630px;
-    }
-/* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (
-        max-width: 767px)
-        {
-         .sidenav {
-           height: 100%;
-         }
-         .row.content {
-             height: 100%;
-         }
-    }
-
-/* Add a dark background color with a little bit see-through */
-.navbar {
-    margin-bottom: 0;
-    background-color: #2d2d30;
-    border: 0;
-    font-size: 11px !important;
-    letter-spacing: 4px;
-    opacity:0.7;
-}
-
-/* Add a gray color to all navbar links */
-.navbar li a, .navbar .navbar-brand {
-    color: #d5d5d5 !important;
-}
-
-/* On hover, the links will turn white */
-.navbar-nav li a:hover {
-    color: #fff !important;
-}
-
-/* The active link */
-.navbar-nav li.active a {
-    color: #fff !important;
-    background-color:#29292c !important;
-}
-
-/* Remove border color from the collapsible button */
-.navbar-default .navbar-toggle {
-    border-color: transparent;
-}
-
-/* Dropdown */
-.open .dropdown-toggle {
-    color: #fff ;
-    background-color: #555 !important;
-}
-
-/* Dropdown links */
-.dropdown-menu li a {
-    color: #000 !important;
-}
-
-/* On hover, the dropdown links will turn red */
-.dropdown-menu li a:hover {
-    background-color: red !important;
-}
-
-/* Select of KU gates and type */
-select {
-  /* styling */
-  background-color: white;
-  border: thin ;
-  border-radius: 10px;
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-  width: 100%;
-
-  /* reset */
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-/* arrows */
-select.classic {
-  background-image:
-    linear-gradient(45deg, transparent 50%, blue 50%),
-    linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, skyblue, skyblue);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
-    100% 0;
-  background-size:
-    5px 5px,
-    5px 5px,
-    2.5em 2.5em;
-  background-repeat: no-repeat;
-  radius: 24px;
-}
-/* Submit button */
-    .btn_submit {
-        background-color: #4CAF50;
-        color: white;
-        height: 40px;
-        width: 100%;
-        border-radius: 10px;
-    }
-
-/* Hover panel */
-    .panel {
-        /*border: 1px solid #ccc;*/
-        border-radius: 5px !important;
-        transition: box-shadow 0.5s;
-        opacity: 50%;
-    }
-    .panel:hover {
-        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-    }
-    .panel-heading {
-      color: #fff !important;
-      background-color: #777 !important;
-      font-size: 20px;
-      height: 50px;
-  }
-    .w3-red {
-        height: 90px;
-    }
-
-/* Add a dark background color to the footer */
-footer {
-    background-color: #2d2d30;
-    color: #f5f5f5;
-    padding: 15px;
-    opacity: 0.7;
-}
-
-footer a {
-    color: #f5f5f5;
-}
-
-footer a:hover {
-    color: #777;
-    text-decoration: none;
-}
-.show {
-    margin-top: 5px;
-}
-
-/* check box type of bus */
-.square label:after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
-	opacity: 0;
-	content: '';
-	position: absolute;
-	width: 18px;
-	height: 18px;
-	background: transparent;
-	top: 4px;
-	left: 4px;
-	border: 3px solid #fcfff4;
-	border-top: none;
-	border-right: none;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-}
-.square label:hover::after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	filter: alpha(opacity=30);
-	opacity: 0.3;
-}
-.square input[type=checkbox]:checked + label:after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	filter: alpha(opacity=100);
-	opacity: 1;
-}
-.parallax {
-    /* The image used */
-    background-image: url("bg.png");
-
-    /* Set a specific height */
-    min-height: 800px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-
-/*Map-apge*/
-    .hamburger{
-    background:none;
-    position:absolute;
-    top:0;
-    right:0;
-    line-height:45px;
-    padding:5px 15px 0px 15px;
-    color:#999;
-    border:0;
-    font-size:1.4em;
-    font-weight:bold;
-    cursor:pointer;
-    outline:none;
-    z-index:10000000000000;
-    }
-    .cross{
-    background:none;
-    position:absolute;
-    top:0px;
-    right:0;
-    padding:7px 15px 0px 15px;
-    color:#999;
-    border:0;
-    font-size:3em;
-    line-height:65px;
-    font-weight:bold;
-    cursor:pointer;
-    outline:none;
-    z-index:10000000000000;
-    }
-    .menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
-    .menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
-    .menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
-    .menu li:hover{display: block;    background:#ffffff; padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
-    .menu ul li a { text-decoration:none;  margin: 0px; color:#666;}
-    .menu ul li a:hover {  color: #666; text-decoration:none;}
-    .menu a{text-decoration:none; color:#666;}
-    .menu a:hover{text-decoration:none; color:#666;}
-
-    .glyphicon-home{
-    color:white;
-    font-size:1.5em;
-    margin-top:5px;
-    margin:0 auto;
-    }
-
-
-    /*-----------------------------------------*/
-
-</style>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="Stylesheet/search.css" rel="stylesheet">
+  <link href="Stylesheet/select.css" rel="stylesheet">
+  <link href="Stylesheet/component.css" rel="stylesheet">
+  <link rel="images">
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-<!-- Nav bar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
+<style>
+#way {
+    background-image: url("./images/map.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 800px;
 
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home" style="font-size: 20px;">HOME</a></li>
-        <li><a href="#way">WAY</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
+}
+</style>
+
+
+<!-- Container of home -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div id="home" class="waves">
+    <img class="img-responsive" src="bg.png"></img>
   </div>
-</nav>
 
-<div class="parallax"></div>
+<!-- Nav bar and Hamberger -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Logo</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#way">WAY</a></li>
+            <li><a href="ShowInfo.html">INFO</a></li>
+            <li><a href="#login"><span class="glyphicon glyphicon-lock"></span></a></li>
+          </ul>
+        </div>
+
+        <!-- Hamberger -->
+        <div class="toggle">
+          <main>
+            <div class="nav-right hidden-xs" style="margin-top: 10px; margin-left: 1px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 9;text-align: left;">
+              <div class="button" id="btn">
+                <div class="bar top"></div>
+                <div class="bar middle"></div>
+                <div class="bar bottom"></div>
+              </div>
+            </div>
+          </main>
+        </div>
+
+      </div>
+    </nav>
+
 
 <!-- Container of way -->
-<div id="way" class="container_input">
-  <div class="row content">
-    <div class="col-sm-3 sidenav">
-        <br/><img class="img-responsive" src="images/select_head.png"></img>
-        <a href="#way" class="btn btn-circle page-scroll">
-            <i class="fa fa-angle-double-down animated"></i>
-        </a>
-        <br/>
+<div class="padding" id="way">
+      <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
 
-        <!-- In the panel -->
-        <div class="container-fluid">
-                    <div class="row slideanim">
-                        <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                                <p>FROM</p>
-                            </div>
-                            <div class="panel-body">
-
-
-                              <!-- Road -->
-                              <select class="classic" id="gate_to" onchange="setGate(this.value)">
-
-                                <option value="">Select your KU gate</option>
-                                <option value="Wipavadee">Wibhawadi</option>
-                                <option value="Ngamwongwan">Ngamwongwan</option>
-                                <option value="Phaholyothin">Phaholyothin</option>
-                              </select><br/>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="row slideanim">
-                        <div class="panel panel-default text-center">
-
-                            <div class="panel-heading">
-                                <p>TO</p>
-                            </div>
-                            <div class="panel-body">
-
-
-                              <!-- Name of province -->
-                              <select class="classic" id="province" onchange="setProvince(this.value)">
-                                <option value="">Select destination province</option>
-                                <option value="Bangkok">Bangkok</option>
-                                <option value="Pathumtani">Pathumthani</option>
-                                <option value="Nonthaburi">Nonthaburi</option>
-                              </select><br/><br/>
-
-                              <!-- Station -->
-                              <div id="select_station_list">
-                                <select class="classic" id="bus_station" onchange="setProvince(this.value)">
-                                  <option value="station_selecet">Select Bus Station</option>
-                                </select> <br/>
-                              </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container-fluid">
-                    <div class="row slideanim">
-                        <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                                <p>OPTION</p>
-                            </div>
-                            <div class="panel-body">
-                              <!-- Squared THREE -->
-                              <div class="square">
-                              	<input type="radio" value="All" id="square_all" name="check" onclick="setType(this.value)" checked="checked"/>
-                              	<label for="square">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
-
-                                <input type="radio" value="Air" id="square_air" name="check" onclick="setType(this.value)"/>
-                              	<label for="square">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
-
-                                <input type="radio" value="Normal" id="square_air" name="check" onclick="setType(this.value)" />
-                              	<label for="square">&nbsp;  Normal&nbsp;</label>
-                              </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-         <button class="btn btn_submit" id="btn_submit" onclick="showTable()">GO!</button>
+      <div style="text-align: center;">
+        <div class="container-way">
+          <button id="button" onclick="changeMap24()">24</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap29()">29</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap39()">39</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap59()">59</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap104()">104</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap510()">510</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMapAll()">All</button>
+        </div>
     </div>
-    <div id="show" class="col-sm-9">
-        <br/><p>sdsdfsdf</p><hr>
-            <br/><p>sdsdfsdf</p><hr>
-    </div>
+
+  <div id="target">
+    <div class="sidebar">
+      <ul class="sidebar-list">
+
+      <!-- From -->
+      <div class="row">
+         <div class="sidebar-item">
+           <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 35px;">SELECT YOUR WAY!</label></br>
+           <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">From</label><br/>
+           <select class="classic" id="gate_to" onchange="setGate(this.value)">
+             <option value="">Select your KU gate</option>
+             <option value="Wipavadee">Wibhawadi</option>
+             <option value="Ngamwongwan">Ngamwongwan</option>
+             <option value="Phaholyothin">Phaholyothin</option>
+           </select><br/>
+         </div>
+      </div>
+
+      <!-- To -->
+      <!-- Destrination Province -->
+      <div class="row">
+        <div class="sidebar-item">
+          <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>
+          <select class="classic" id="province" onchange="setProvince(this.value)">
+            <option value="">Select destination province</option>
+            <option value="Bangkok">Bangkok</option>
+ +          <option value="Pathumtani">Pathumthani</option>
+ +          <option value="Nonthaburi">Nonthaburi</option>
+          </select><br/>
+        </div>
+      </div>
+
+      <!-- Bus Station -->
+      <div id="select_station_list">
+        <div class="row">
+          <div class="sidebar-item">
+            <select class="classic" id="bus_station" onchange="setProvince(this.value)">
+              <option value="station_selecet">Select Bus Station</option>
+            </select><br/>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Option -->
+      <div class="row">
+        <div class="sidebar-item">
+          <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>
+            <div class="panel-body" id="checkbox">
+              <!-- Squared THREE -->
+              <div class="square" style="padding: 0px;" style="color: white">
+                <input type="radio" value="All" id="square_all" name="check" onclick="setType(this.value)" checked="checked" />
+                <label for="square" style="color: white">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
+
+                <input type="radio" value="Air" id="square_air" name="check" onclick="setType(this.value)" />
+                <label for="square" style="color: white">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
+
+                <input type="radio" value="Normal" id="square_air" name="check" onclick="setType(this.value)" />
+                <label for="square" style="color: white">&nbsp;  Normal&nbsp;</label>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- GO! Button -->
+      <div class="sidebar-item">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
+      </div>
 
   </div>
 </div>
 
- <!--fotter-->
-    <footer class="text-center">
-        <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-        </a><br>
-    </footer>
+<!-- Modal dialog -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">ABOUT BUSES</h2>
+            <table id="displayTable">
+              <tr><th>BusNo</th>
+              <th>BusDesc</th>
+              <th>BusType</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>StaffType</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>StaffType</th></tr>
+            </table>
+          </div>
+          <!--<div class="modal-body" id="show"></div>-->
+        </div>
+      </div>
+    </div>
+
+
+
+
+  <!--Footer-->
+  <footer class="text-center">
+    <a class="up-arrow" href="#home" onclick="scrollToTop();return false">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a><br>
+  </footer>
 </body>
+</html>
 
 
 
 
-
-
+<!-- javaScript -->
 <script>
-
-// Footer
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
 
 //Smooth scrolling
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-
-  // Make sure this.hash has a value before overriding default behavior
+  $(".navbar a, footer a,[href='#myPage']").on('click', function(event) {
   if (this.hash !== "") {
     event.preventDefault();
     var hash = this.hash;
-
-    // smooth page scroll
     $('html, body').animate({
       scrollTop: $(hash).offset().top
     }, 900, function(){
-
-      // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
     }
   });
 })
 
+var timeOut;
+function scrollToTop() {
+  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+    window.scrollBy(0,-5);
+    timeOut=setTimeout('scrollToTop()',10);
+  }
+  else clearTimeout(timeOut);
+}
+
+
+// -------- Search ----------
+  $(document).ready(function() {
+
+  function toggleSidebar() {
+    $(".button").toggleClass("active");
+    $("main").toggleClass("move-to-left");
+    $(".sidebar-item").toggleClass("active");
+  }
+
+  $(".button").on("click tap", function() {
+    toggleSidebar();
+  });
+});
+
+
+// -------- Show/hide Sidebar ----------
+$('.Show').click(function() {
+    $('#target').show(100);
+    $('.Show').hide(0);
+    $('.Hide').show(0);
+});
+$('.Hide').click(function() {
+    $('#target').hide(100);
+    $('.Show').show(0);
+    $('.Hide').hide(0);
+});
+$('.toggle').click(function() {
+    $('#target').toggle('slow');
+});
+
+
 </script>
-
-
-</html>

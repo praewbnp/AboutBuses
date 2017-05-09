@@ -2,6 +2,7 @@ var gate = "";
 var type = "All";
 var province = "";
 var stationID = "";
+var list = new Array(10);
 
 function setGate(ngate) {
   gate = ngate;
@@ -21,21 +22,19 @@ function setStation(nstation) {
 }
 
 function showTable() {
-
-  if(gate == "" && province != "") {
-    alert("Please select your KU gate.");
-  } else {
-    $.ajax({
-      method: "POST",
-      url: "getTable.php",
-      cache: false,
-      dataType: "html",
-      data: { gate: gate, type: type, province: province, station: stationID },
-      success: function( data, status, jqXHR ) {
-        $("#show").html(data);
-      }
-    });
+  $.ajax({
+  method: "POST",
+  url: "getTable.php",
+  cache: false,
+  dataType: "json",
+  data: { gate: gate, type: type, province: province, station: stationID },
+  success: function( data, status, jqXHR ) {
+    console.log(data);
+    //console.log(JSON.stringify(data));
+    // $("#show").html(data);
   }
+});
+
 }
 
 function getStationList(val) {
