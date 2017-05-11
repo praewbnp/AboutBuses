@@ -29,8 +29,7 @@ function showTable() {
   dataType: "json",
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
-    console.log(data);
-    //console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
     // $("#show").html(data);
   }
 });

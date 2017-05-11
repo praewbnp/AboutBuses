@@ -8,9 +8,9 @@
       }
 
   $staff = "SELECT * FROM Staff";
-  $result = mysqli_query($connection, $showStaff);
+  $result = mysqli_query($connection, $staff);
   $table = "";
-  $table .= "<table>";
+  $table .= "<table id='table'>";
   $table .= "<tr><th>StaffID</th>";
   $table .= "<th>FirstName</th>";
   $table .= "<th>LastName</th>";
