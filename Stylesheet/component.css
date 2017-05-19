@@ -11,7 +11,8 @@
   text-align: center;
 }
 
-button {
+
+.showBusLine {
   outline: none;
   height: 60px;
   text-align: center;
@@ -30,11 +31,11 @@ button {
   transition: all 0.25s ease;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
-button:hover {
+.showBusLine:hover {
   color: white;
   background: #322B2B;
 }
-button:active {
+.showBusLine:active {
   letter-spacing: 2px;
 }
 

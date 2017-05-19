@@ -2,7 +2,6 @@ var gate = "";
 var type = "All";
 var province = "";
 var stationID = "";
-var list = new Array(10);
 
 function setGate(ngate) {
   gate = ngate;
@@ -26,14 +25,12 @@ function showTable() {
   method: "POST",
   url: "getTable.php",
   cache: false,
-  dataType: "json",
+  dataType: "html",
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
-    console.log(JSON.stringify(data));
-    // $("#show").html(data);
+    $("#show").html(data);
   }
 });
-
 }
 
 function getStationList(val) {
