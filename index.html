@@ -11,6 +11,7 @@
   <script type="text/javascript" src="JSfunction.js"></script>
   <script type="text/javascript" src="change-map.js"></script>
   <script type="text/javascript" src="popular-place.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -35,6 +36,7 @@
 
 <!-- Container of home -->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
   <div id="home" class="waves" >
     <img class="img-responsive" src="bg.png"></img>
   </div>
@@ -76,7 +78,6 @@
       </div>
     </nav>
 
-
 <!-- Container of way(btn show line) -->
 <div class="padding" id="way">
       <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
@@ -103,7 +104,7 @@
            <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 35px;">SELECT YOUR WAY!</label></br>
            <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">From</label><br/>
            <select class="classic" id="gate_to" onchange="setGate(this.value)">
-             <option value="gate_selecet">Select your KU gate</option>
+             <option value="">Select your KU gate</option>
              <option value="Wipavadee">Wibhawadi</option>
              <option value="Ngamwongwan">Ngamwongwan</option>
              <option value="Phaholyothin">Phaholyothin</option>
@@ -117,7 +118,7 @@
         <div class="sidebar-item">
           <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>
           <select class="classic" id="province" onchange="setProvince(this.value)">
-            <option value="province_selecet">Select destination province</option>
+            <option value="">Select destination province</option>
             <option value="Bangkok">Bangkok</option>
  +          <option value="Pathumtani">Pathumthani</option>
  +          <option value="Nonthaburi">Nonthaburi</option>
@@ -172,6 +173,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h2 class="modal-title">ABOUT BUSES</h2>
+
           </div>
           <div class="modal-body" id="show">
             <p></p>
@@ -245,7 +247,6 @@ function scrollToTop() {
   else clearTimeout(timeOut);
 }
 
-
 // -------- Search ----------
   $(document).ready(function() {
 
@@ -276,7 +277,6 @@ $('.toggle').click(function() {
     $('#target').toggle('slow');
 });
 
-
 // -------- Checkbox one time only ----------
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
@@ -284,6 +284,5 @@ $(document).ready(function(){
 $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
-
 
 </script>
