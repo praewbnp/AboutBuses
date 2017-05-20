@@ -11,7 +11,7 @@
   $previouslist_sql = "SELECT * FROM Staff";
   $result = mysqli_query($connection, $previouslist_sql);
   $num = mysqli_num_rows($result) + 1;
-  $id = "S$num";
+  $id = "ST$num";
 
   $sql = "INSERT INTO `Staff`(`StaffID`, `FirstName`, `LastName`, `Gender`, `Age`, `StaffType`)
   VALUES ('$id','$firstname','$lastname','$gender','$age','$type')";

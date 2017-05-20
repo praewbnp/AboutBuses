@@ -10,8 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="JSfunction.js"></script>
   <script type="text/javascript" src="change-map.js"></script>
-  <script type="text/javascript" src="popular-place.js"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -19,7 +17,6 @@
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
   <link href="Stylesheet/component.css" rel="stylesheet">
-  <link href="Stylesheet/popular-Place.css" rel="stylesheet">
   <link rel="images">
 </head>
 
@@ -28,7 +25,7 @@
     background-image: url("./images/map.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 900px;
+    height: 800px;
 
 }
 </style>
@@ -36,8 +33,7 @@
 
 <!-- Container of home -->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-  <div id="home" class="waves" >
+  <div id="home" class="waves">
     <img class="img-responsive" src="bg.png"></img>
   </div>
 
@@ -78,19 +74,20 @@
       </div>
     </nav>
 
-<!-- Container of way(btn show line) -->
+
+<!-- Container of way -->
 <div class="padding" id="way">
       <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
 
       <div style="text-align: center;">
         <div class="container-way">
-          <button class="showBusLine" id="button24" onclick="changeMap24()">24</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button29" onclick="changeMap29()">29</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button39" onclick="changeMap39()">39</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button59" onclick="changeMap59()">59</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button104" onclick="changeMap104()">104</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button510" onclick="changeMap510()">510</button><span>&nbsp;</span>
-          <button class="showBusLine" id="buttonAll" onclick="changeMapAll()" style="background-color: black; color: #fff;">All</button>
+          <button id="button" onclick="changeMap24()">24</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap29()">29</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap39()">39</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap59()">59</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap104()">104</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMap510()">510</button><span>&nbsp;</span>
+          <button id="button" onclick="changeMapAll()">All</button>
         </div>
     </div>
 
@@ -173,38 +170,25 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h2 class="modal-title">ABOUT BUSES</h2>
-
+            <table id="displayTable">
+              <tr><th>BusNo</th>
+              <th>BusDesc</th>
+              <th>BusType</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>StaffType</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>StaffType</th></tr>
+            </table>
           </div>
-          <div class="modal-body" id="show">
-            <p></p>
-          </div>
+          <!--<div class="modal-body" id="show"></div>-->
         </div>
       </div>
     </div>
-  </div>
 
-    <!-- pop-place -->
-    <div style="padding-top: 0px; text-align: center; height: 350px;">
-      <div class="container-way" style="padding-top: 60px; margin-top: 0;">
-        <h1>~ Popular places around KU ~</h1>
-        <button class="btnPlace" id="place1" onclick="showBusTable('bts', 1);return false"><img src="images/place/p1.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place2" onclick="showBusTable('mrt', 2);return false"><img src="images/place/p2.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place3" onclick="showBusTable('cenLad', 3);return false"><img src="images/place/p3.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place4" onclick="showBusTable('major', 4);return false"><img src="images/place/p4.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place5" onclick="showBusTable('theMall', 5);return false"><img src="images/place/p5.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place6" onclick="showBusTable('future', 6);return false"><img src="images/place/p6.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place7" onclick="showBusTable('donMeung', 7);return false"><img src="images/place/p7.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place8" onclick="showBusTable('theMall', 8);return false"><img src="images/place/p8.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place9" onclick="showBusTable('future', 9);return false"><img src="images/place/p9.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place10" onclick="showBusTable('donMeung', 10);return false"><img src="images/place/p10.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        </img>
-      </div>
-      <div id="show" style="text-align: center;">
-        <p id="pre_text">
-          Find the bus!!
-        </p>
-      </div>
-    </div>
+
+
 
   <!--Footer-->
   <footer class="text-center">
@@ -220,11 +204,6 @@
 
 <!-- javaScript -->
 <script>
-$('#btb').hide();
-// -------- Footer ----------
-// $(document).ready(function(){
-//     $('[data-toggle="tooltip"]').tooltip();
-// })
 
 //Smooth scrolling
 $(document).ready(function(){
@@ -250,6 +229,7 @@ function scrollToTop() {
   }
   else clearTimeout(timeOut);
 }
+
 
 // -------- Search ----------
   $(document).ready(function() {
@@ -281,12 +261,5 @@ $('.toggle').click(function() {
     $('#target').toggle('slow');
 });
 
-// -------- Checkbox one time only ----------
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
-$('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
 
 </script>
