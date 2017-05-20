@@ -26,11 +26,11 @@ function showTable() {
   method: "POST",
   url: "getTable.php",
   cache: false,
-  dataType: "json",
+  dataType: "html",
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
-    console.log(JSON.stringify(data));
-    // $("#show").html(data);
+    console.log(data);
+    $("#show").append(data);
   }
 });
 

@@ -138,53 +138,49 @@
               WHERE bus.BusNo=staff.BusNo AND staff.BusType=bus.BusType";
     }
     $result = mysqli_query($connection, $sql);
-    $table = array(array());
-    // $table = "";
-    // $table .= "<table id='displayTable border=1>";
-    // if($check == 1) {
-    //   $table .= "<tr><th>BusNo</th>";
-    //   $table .= "<th>BusDesc</th>";
-    //   $table .= "<th>BusType</th>";
-    //   $table .= "<th>FirstName</th>";
-    //   $table .= "<th>LastName</th>";
-    //   $table .= "<th>StaffType</th>";
-    //   $table .= "<th>FirstName</th>";
-    //   $table .= "<th>LastName</th>";
-    //   $table .= "<th>StaffType</th></tr>";
-    //   if(mysqli_num_rows($result) == 0) {
-    //     $table = "<p>No data is matched.</p>";
-    //   } else {
-    //       while( $row = mysqli_fetch_array($result) ) {
-    //         $table .= "<tr><td>". $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" .
-    //         $row[6] . "</td><td>" . $row[7] . "</td><td>" . $row[8] . "</td></tr>";
-    //       }
-    //       $table .= "</table>";
-    //   }
-    // } else {
-    //   $table .= "<tr><th>BusNo</th>";
-    //   $table .= "<th>BusDesc</th>";
-    //   $table .= "<th>BusType</th>";
-    //   $table .= "<th>StationName</th>";
-    //   $table .= "<th>FirstName</th>";
-    //   $table .= "<th>LastName</th>";
-    //   $table .= "<th>StaffType</th>";
-    //   $table .= "<th>FirstName</th>";
-    //   $table .= "<th>LastName</th>";
-    //   $table .= "<th>StaffType</th></tr>";
-    //   if(mysqli_num_rows($result) == 0) {
-    //     $table = "<p>No data is matched.</p>";
-    //   } else {
-    //     while( $row = mysqli_fetch_array($result) ) {
-    //       $table .= "<tr><td>". $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" .
-    //       $row[6] . "</td><td>" . $row[7] . "</td><td>" . $row[8] . "</td><td>" . $row[9] . "</td></tr>";
-    //     }
-    //     $table .= "</table>";
-    //   }
-    // }
-
-    for($i = 0 ; $row = mysqli_fetch_array($result) ; $i++ ) {
-      $table[$i] = $row;
+    $table = "";
+    $table .= "<table id='displayTable border=1>";
+    if($check == 1) {
+      $table .= "<tr><th>BusNo</th>";
+      $table .= "<th>BusDesc</th>";
+      $table .= "<th>BusType</th>";
+      $table .= "<th>FirstName</th>";
+      $table .= "<th>LastName</th>";
+      $table .= "<th>StaffType</th>";
+      $table .= "<th>FirstName</th>";
+      $table .= "<th>LastName</th>";
+      $table .= "<th>StaffType</th></tr>";
+      if(mysqli_num_rows($result) == 0) {
+        $table = "<p>No data is matched.</p>";
+      } else {
+          while( $row = mysqli_fetch_array($result) ) {
+            $table .= "<tr><td>". $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" .
+            $row[6] . "</td><td>" . $row[7] . "</td><td>" . $row[8] . "</td></tr>";
+          }
+          $table .= "</table>";
+      }
+    } else {
+      $table .= "<tr><th>BusNo</th>";
+      $table .= "<th>BusDesc</th>";
+      $table .= "<th>BusType</th>";
+      $table .= "<th>StationName</th>";
+      $table .= "<th>FirstName</th>";
+      $table .= "<th>LastName</th>";
+      $table .= "<th>StaffType</th>";
+      $table .= "<th>FirstName</th>";
+      $table .= "<th>LastName</th>";
+      $table .= "<th>StaffType</th></tr>";
+      if(mysqli_num_rows($result) == 0) {
+        $table = "<p>No data is matched.</p>";
+      } else {
+        while( $row = mysqli_fetch_array($result) ) {
+          $table .= "<tr><td>". $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" .
+          $row[6] . "</td><td>" . $row[7] . "</td><td>" . $row[8] . "</td><td>" . $row[9] . "</td></tr>";
+        }
+        $table .= "</table>";
+      }
     }
+
     echo json_encode($table);
     disconnect( $connection );
    ?>
