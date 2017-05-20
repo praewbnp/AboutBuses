@@ -29,7 +29,6 @@
     background-size: 100%;
     background-repeat: no-repeat;
     height: 900px;
-
 }
 </style>
 
@@ -227,7 +226,6 @@ $('#btb').hide();
 // $(document).ready(function(){
 //     $('[data-toggle="tooltip"]').tooltip();
 // })
-
 //Smooth scrolling
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
@@ -243,7 +241,6 @@ $(document).ready(function(){
     }
   });
 })
-
 var timeOut;
 function scrollToTop() {
   if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
@@ -252,22 +249,17 @@ function scrollToTop() {
   }
   else clearTimeout(timeOut);
 }
-
 // -------- Search ----------
   $(document).ready(function() {
-
   function toggleSidebar() {
     $(".button").toggleClass("active");
     $("main").toggleClass("move-to-left");
     $(".sidebar-item").toggleClass("active");
   }
-
   $(".button").on("click tap", function() {
     toggleSidebar();
   });
 });
-
-
 // -------- Show/hide Sidebar ----------
 $('.Show').click(function() {
     $('#target').show(100);
@@ -282,7 +274,6 @@ $('.Hide').click(function() {
 $('.toggle').click(function() {
     $('#target').toggle('slow');
 });
-
 // -------- Checkbox one time only ----------
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
@@ -290,5 +281,4 @@ $(document).ready(function(){
 $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
-
 </script>
