@@ -7,7 +7,6 @@
   $age = intval($_POST['age']);
 
   $connection = connect();
-
   $previouslist_sql = "SELECT * FROM Staff";
   $result = mysqli_query($connection, $previouslist_sql);
   $num = mysqli_num_rows($result) + 1;
@@ -17,4 +16,5 @@
   VALUES ('$id','$firstname','$lastname','$gender','$age','$type')";
   $result = mysqli_query($connection, $sql);
   disconnect($connection);
- ?>
+?>
+
