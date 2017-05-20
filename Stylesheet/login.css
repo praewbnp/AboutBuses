@@ -26,7 +26,9 @@ html, body {
   transition: all 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 
+
 .modal-login, .register-modal {
+  opacity: 0.3 ;
   position: absolute;
   width: 300px;
   height: 200px;
@@ -41,7 +43,7 @@ html, body {
 }
 
 .modal-login.active {
-  opacity: 1;
+  opacity: 0.3 ;
   transform: scale(1);
   transition: all 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
@@ -52,22 +54,30 @@ html, body {
 
 .modal-dialog {
 
-  border: 1px solid white;
+  border: 1px solid white ;
+  overflow-y: initial ;
+
+  /*-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;*/
+  border-radius: 10px ;
+
+
 }
 
 .modal-content {
 	background: #3a3a3a;
-	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+	/*-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;*/
 	border: 0;
 	text-align: left;
+  border-radius: 10px ;
 }
 
 .modal-header {
 	padding: 25px 25px 15px 25px;
-	background: #000000;
+	background: #ffffff;
 	border: 0;
-	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
-	color: #888;
+	/*-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;*/
+	color: #000000;
+  border-radius: 10px ;
 }
 
 .modal-header .close {
@@ -81,15 +91,38 @@ html, body {
 .modal-title {
 	margin-bottom: 10px;
 	line-height: 30px;
-	color: #eee;
+	color: #000000;
 }
 
-.modal-body {
+div.modal-bodylogin {
 	padding: 25px 25px 30px 25px;
 	background: #3a3a3a;
 	text-align: left;
-	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	/*-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;*/
+  border-radius: 10px ;
+  height: 200px;
+  overflow-y: auto;
 }
+div.modal-bodyStaff {
+	padding: 25px 25px 30px 25px;
+	background: #3a3a3a;
+	text-align: left;
+	/*-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;*/
+  border-radius: 10px ;
+  height: 400px;
+  overflow-y: auto;
+}
+
+div.modal-bodyStation {
+	padding: 25px 25px 30px 25px;
+	background: #3a3a3a;
+	text-align: left;
+	/*-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;*/
+  border-radius: 10px ;
+  height: 500px;
+  overflow-y: auto;
+}
+
 
 .modal-body img {
 	margin-bottom: 15px;
@@ -97,7 +130,10 @@ html, body {
 
 .modal-body form textarea {
 	height: 100px;
+
 }
+
+
 
 .modal-body form .input-error {
 	border-color: #399599;
