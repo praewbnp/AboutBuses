@@ -52,7 +52,7 @@ function showTable() {
   dataType: "html",
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
-    $("#show").html(data);
+    $("#show_Table").html(data);
   }
 });
 }
@@ -207,4 +207,26 @@ function getBusInfo(divID, busNo, busType) {
       $("#" + divID).html(data);
     }
   });
+}
+
+function resetData(){
+  setStation("");
+  setProvince("");
+  setGate("");
+
+  showTable();
+}
+
+function showPopPlace(stationName) {
+  $.ajax({
+  method: "POST",
+  url: "getBusListFromPopularPlace.php",
+  cache: false,
+  dataType: "html",
+  data: { stationName: stationName },
+  success: function( data, status, jqXHR ) {
+    $("#pre_text").html(data);
+    console.log(data);
+  }
+});
 }
