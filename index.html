@@ -18,190 +18,266 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
   <link href="Stylesheet/search.css" rel="stylesheet">
   <link href="Stylesheet/select.css" rel="stylesheet">
+  <link href="Stylesheet/login.css" rel="stylesheet">
   <link href="Stylesheet/component.css" rel="stylesheet">
   <link href="Stylesheet/popular-Place.css" rel="stylesheet">
   <link rel="images">
 </head>
 
 <style>
-#way {
+  #way {
     background-image: url("./images/map.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     height: 900px;
-}
+  }
 </style>
-
 
 <!-- Container of home -->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-  <div id="home" class="waves" >
+  <div id="home" class="waves">
     <img class="img-responsive" src="bg.png"></img>
   </div>
 
-<!-- Nav bar and Hamberger -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Logo</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#way">WAY</a></li>
-            <li><a href="ShowInfo.html">INFO</a></li>
-            <li><a href="#login"><span class="glyphicon glyphicon-lock"></span></a></li>
-          </ul>
-        </div>
-
-        <!-- Hamberger -->
-        <div class="toggle">
-          <main>
-            <div class="nav-right hidden-xs" style="margin-top: 10px; margin-left: 1px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 9;text-align: left;">
-              <div class="button" id="btn">
-                <div class="bar top"></div>
-                <div class="bar middle"></div>
-                <div class="bar bottom"></div>
-              </div>
-            </div>
-          </main>
-        </div>
-
+  <!-- Nav bar and Hamberger -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Logo</a>
       </div>
-    </nav>
 
-<!-- Container of way(btn show line) -->
-<div class="padding" id="way">
-      <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#way">WAY</a></li>
+          <li><a href="ShowInfo.html">INFO</a></li>
+          <li><button type="button" class="btn btn-info btn-lg" onclick="getStaffList()" data-toggle="modal" data-target="#loginModal" style="padding:8px; margin:4px; background-color: gray; border-color: gray; width: 37px;"><a href="#login"><span class="glyphicon glyphicon-lock" style="padding: 1px;"></span></a></button></li>
+        </ul>
+      </div>
 
-      <div style="text-align: center;">
-        <div class="container-way">
-          <button class="showBusLine" id="button24" onclick="changeMap24()">24</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button29" onclick="changeMap29()">29</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button39" onclick="changeMap39()">39</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button59" onclick="changeMap59()">59</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button104" onclick="changeMap104()">104</button><span>&nbsp;</span>
-          <button class="showBusLine" id="button510" onclick="changeMap510()">510</button><span>&nbsp;</span>
-          <button class="showBusLine" id="buttonAll" onclick="changeMapAll()" style="background-color: black; color: #fff;">All</button>
-        </div>
+      <!-- Hamberger -->
+      <div class="toggle">
+        <main>
+          <div class="nav-right hidden-xs" style="margin-top: 10px; margin-left: 1px; background-color: #8C2218; padding-left: 25px;padding-right: 25px;padding-top: 20px;border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;padding-bottom: 14px;outline-color: rgba(3, 0, 1, 1);opacity: 9;text-align: left;">
+            <div class="button" id="btn">
+              <div class="bar top"></div>
+              <div class="bar middle"></div>
+              <div class="bar bottom"></div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Container of way(btn show line)-->
+  <div class="padding" id="way">
+    <img id="way-bg" class="img-responsive" src="./images/bus/allbuses.png" style="padding-left: 0px;"></img>
+    <div style="text-align: center;">
+      <div class="container-way">
+        <button class="showBusLine" id="button24" onclick="changeMap24()">24</button><span>&nbsp;</span>
+        <button class="showBusLine" id="button29" onclick="changeMap29()">29</button><span>&nbsp;</span>
+        <button class="showBusLine" id="button39" onclick="changeMap39()">39</button><span>&nbsp;</span>
+        <button class="showBusLine" id="button59" onclick="changeMap59()">59</button><span>&nbsp;</span>
+        <button class="showBusLine" id="button104" onclick="changeMap104()">104</button><span>&nbsp;</span>
+        <button class="showBusLine" id="button510" onclick="changeMap510()">510</button><span>&nbsp;</span>
+        <button class="showBusLine" id="buttonAll" onclick="changeMapAll()" style="background-color: black; color: #fff;">All</button>
+      </div>
     </div>
 
-  <div id="target">
-    <div class="sidebar">
-      <ul class="sidebar-list">
+    <div id="target">
+      <div class="sidebar">
+        <ul class="sidebar-list">
+          <!-- From -->
+          <div class="row">
+            <div class="sidebar-item">
+              <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 35px;">SELECT YOUR WAY!</label></br>
+              <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">From</label><br/>
+              <select class="classic" id="gate_to" onchange="setGate(this.value)">
+                <option value="">Select your KU gate</option>
+                <option value="Wipavadee">Wibhawadi</option>
+                <option value="Ngamwongwan">Ngamwongwan</option>
+                <option value="Phaholyothin">Phaholyothin</option>
+              </select><br/>
+            </div>
+          </div>
 
-      <!-- From -->
-      <div class="row">
-         <div class="sidebar-item">
-           <label class="slidebar-item sidebar-anchor" style="color: rgb(236, 157, 89); font-size: 35px;">SELECT YOUR WAY!</label></br>
-           <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">From</label><br/>
-           <select class="classic" id="gate_to" onchange="setGate(this.value)">
-             <option value="">Select your KU gate</option>
-             <option value="Wipavadee">Wibhawadi</option>
-             <option value="Ngamwongwan">Ngamwongwan</option>
-             <option value="Phaholyothin">Phaholyothin</option>
-           </select><br/>
-         </div>
-      </div>
+          <!-- To -->
+          <!-- Destrination Province -->
+          <div class="row">
+            <div class="sidebar-item">
+              <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>
+              <select class="classic" id="province" onchange="setProvince(this.value)">
+                <option value="">Select destination province</option>
+                <option value="Bangkok">Bangkok</option>
+                <option value="Pathumtani">Pathumthani</option>
+                <option value="Nonthaburi">Nonthaburi</option>
+              </select><br/>
+            </div>
+          </div>
 
-      <!-- To -->
-      <!-- Destrination Province -->
-      <div class="row">
-        <div class="sidebar-item">
-          <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">To</label><br/>
-          <select class="classic" id="province" onchange="setProvince(this.value)">
-            <option value="">Select destination province</option>
-            <option value="Bangkok">Bangkok</option>
- +          <option value="Pathumtani">Pathumthani</option>
- +          <option value="Nonthaburi">Nonthaburi</option>
-          </select><br/>
-        </div>
-      </div>
+          <!-- Bus Station -->
+          <div id="select_station_list">
+            <div class="row">
+              <div class="sidebar-item">
+                <select class="classic" id="bus_station" onchange="setProvince(this.value)">
+                  <option value="station_selecet">Select Bus Station</option>
+                </select><br/>
+              </div>
+            </div>
+          </div>
 
-      <!-- Bus Station -->
-      <div id="select_station_list">
-        <div class="row">
+      <!-- Option -->
+          <div class="row">
+            <div class="sidebar-item">
+              <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>
+              <div class="panel-body" id="checkbox">
+                <!-- Squared THREE -->
+                <div class="square" style="padding: 0px;" style="color: white">
+                  <input type="radio" value="All" id="square_all" name="check" onclick="setType(this.value)" checked="checked" />
+                  <label for="square" style="color: white">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
+
+                  <input type="radio" value="Air" id="square_air" name="check" onclick="setType(this.value)" />
+                  <label for="square" style="color: white">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
+
+                  <input type="radio" value="Normal" id="square_air" name="check" onclick="setType(this.value)" />
+                  <label for="square" style="color: white">&nbsp;  Normal&nbsp;</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GO! Button -->
           <div class="sidebar-item">
-            <select class="classic" id="bus_station" onchange="setProvince(this.value)">
-              <option value="station_selecet">Select Bus Station</option>
-            </select><br/>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
+          </div>
+
+        </div>
+      </div>
+
+     <!-- Modal dialog -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" style="text-align: center;">ABOUT BUSES</h2>
+
+          </div>
+          <div class="modal-body" id="display_Table" style="padding: 20px 40px;">
+              
+          </div>
           </div>
         </div>
       </div>
 
 
-    <!-- Option -->
-      <div class="row">
-        <div class="sidebar-item">
-          <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>
-            <div class="panel-body" id="checkbox">
-              <!-- Squared THREE -->
-              <div class="square" style="padding: 0px;" style="color: white">
-                <input type="radio" value="All" id="square_all" name="check" onclick="setType(this.value)" checked="checked" />
-                <label for="square" style="color: white">&nbsp; All&nbsp;&nbsp;&nbsp;</label>
 
-                <input type="radio" value="Air" id="square_air" name="check" onclick="setType(this.value)" />
-                <label for="square" style="color: white">&nbsp;  Air&nbsp;&nbsp;&nbsp;</label>
-
-                <input type="radio" value="Normal" id="square_air" name="check" onclick="setType(this.value)" />
-                <label for="square" style="color: white">&nbsp;  Normal&nbsp;</label>
-              </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- GO! Button -->
-      <div class="sidebar-item">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="btn_submit" onclick="showTable()">GO!</button>
-      </div>
-
-  </div>
-</div>
-
-<!-- Modal dialog -->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title">ABOUT BUSES</h2>
-
-          </div>
-          <div class="modal-body" id="show">
-            <p></p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
-    <!-- pop-place -->
-          <img class="img-responsive" src="./images/pop-place.jpg" style="padding-left: 0px; margin-top: -100px; z-index: 0;"></img>
 
-    <div style="padding-top: 0px; text-align: center; height: 300px;">
-      <div class="container-way" style="padding-top: 60px; margin-top: -300px; z-index: 10;">
-        <button class="btnPlace" id="place1" onclick="showBusTable('bts', 1);return false"><img src="images/place/p1.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place2" onclick="showBusTable('mrt', 2);return false"><img src="images/place/p2.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place3" onclick="showBusTable('cenLad', 3);return false"><img src="images/place/p3.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place4" onclick="showBusTable('major', 4);return false"><img src="images/place/p4.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place5" onclick="showBusTable('theMall', 5);return false"><img src="images/place/p5.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place6" onclick="showBusTable('future', 6);return false"><img src="images/place/p6.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place7" onclick="showBusTable('donMeung', 7);return false"><img src="images/place/p7.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place8" onclick="showBusTable('theMall', 8);return false"><img src="images/place/p8.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place9" onclick="showBusTable('future', 9);return false"><img src="images/place/p9.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-        <button class="btnPlace" id="place10" onclick="showBusTable('donMeung', 10);return false"><img src="images/place/p10.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+  <!-- Modal dialog show login-->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+    <div class="modal-dialog" style="width: 300px; ">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+          </button>
+          <h3 class="modal-title" id="modal-login-label">Login </h3>
+
+        </div>
+
+        <div class="modal-bodylogin">
+
+          <form role="form" action="" method="post" class="login-form">
+            <div class="form-group">
+              <label class="sr-only" for="username">Username</label>
+              <form name = "Login">
+                <input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="password">Password</label>
+                <input type="password" name="password" placeholder=" Password..." class="form-password form-control" id="form-password">
+              </div>
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id="login_btn" onclick="pasuser(this.form)" >LOGIN!</button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal signin dialog -->
+    <div class="modal fade" id="staffModal" role="dialog" style="background-color:rgba(255, 255, 255, 0.1)">
+      <div class="modal-dialog" >
+        <div class="modal-content" >
+          <div class="modal-header" >
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            <h3 class="modal-title" id="modal-login-label">Edit Staff list .</h3>
+            <div class="panel-body"   id="infostaff">
+              <label class="slidebar-item " style="font-size: 15px; text-align: center; color: black ;">&nbsp;&nbsp; FIRSTNAME : &nbsp;</label>
+              <input type="text" name="form-firstname" placeholder="Firstname..." class="form-firstname " id="input_firstname">
+              <label class="slidebar-item " style="font-size: 15px; text-align: center; color: black ;">&nbsp;&nbsp; LASTNAME : &nbsp;</label>
+              <input type="text" name="form-lastname" placeholder="Lastname..." class="form-lastname " id="input_lastname">
+
+              <!-- Squared -->
+              <label class="slidebar-item " style="font-size: 15px; text-align: center; color: black ;">&nbsp;&nbsp; GENDER : &nbsp;</label>
+
+              <input type="radio" value="Male" id="square_male" name="check" onclick="setGender(this.value)" checked="checked"  />
+              <label for="square" style="color: black">&nbsp; Male&nbsp;&nbsp;&nbsp;</label>
+
+              <input type="radio" value="Female" id="square_Female" name="check" onclick="setGender(this.value)"/>
+              <label for="square" style="color: black">&nbsp;  Female&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+              <label class="slidebar-item " value="Age" style="font-size: 15px; text-align: center; color: black ;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AGE : &nbsp;</label>
+              <input type="text" name="form-age" placeholder="Age" class="form-age" id="input_age">
+
+              <label class="slidebar-item sidebar-anchor" style="font-size: 15px; text-align: center; color: black ;">&nbsp;&nbsp; STAFF TYPE : &nbsp;</label>
+              <select class="classic2" id="stafftype" onchange="setTypeStaff(this.value)">
+                <option value="Driver">Driver</option>
+                <option value="Bag">Bag</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info btn-lg" id="add" style="width:150px ; margin-top: 12px ;" onclick="addRow()" >Add!</button>
+            </div>
+          </div>
+          <div class="modal-bodyStaff" id="staff_list" ></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- close Modal dialog show login-->
+
+  <!-- pop-place -->
+    <img class="img-responsive" src="./images/pop-place.jpg" style="padding-left: 0px; margin-top: -100px; z-index: 0;"></img>
+
+    <div style="padding-top: 0px; text-align: center; height: 410px;">
+      <div class="container-way" style="padding-top: 60px; margin-top: -405px; z-index: 10;">
+        <button class="btnPlace" id="place1" onclick="showPopPlace('Central Plaza Ladprao');return false"><img src="images/place/p1.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place2" onclick="showPopPlace('Dhurakij Pundit University');return false"><img src="images/place/p2.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place3" onclick="showPopPlace('Sripatum University');return false"><img src="images/place/p3.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place4" onclick="showPopPlace('BTS Mochit');return false"><img src="images/place/p4.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place5" onclick="showPopPlace('Don Mueang International Airport');return false"><img src="images/place/p5.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place6" onclick="showPopPlace('Future Park Rangsit');return false"><img src="images/place/p6.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place7" onclick="showPopPlace('The Mall Ngamwongwan');return false"><img src="images/place/p7.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place8" onclick="showPopPlace('Thammasat University');return false"><img src="images/place/p8.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place9" onclick="showPopPlace('Major Ratchayothin');return false"><img src="images/place/p9.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place10" onclick="showPopPlace('Air Force Club');return false"><img src="images/place/p10.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
         </img>
       </div>
-      <div id="show" style="text-align: center;">
-        <p id="pre_text">
-          Find the bus!!
+      <div  style="text-align: center;">
+        <p id="pre_text" style="font-size: 20px; text-transform: uppercase; margin-top: 10px;">
+          FIND POPULAR PLACE
         </p>
       </div>
     </div>
@@ -217,67 +293,80 @@
 
 
 
-
-<!-- javaScript -->
+<!-- ------------------------javaScript-------------------------- -->
 <script>
-$('#btb').hide();
-// -------- Footer ----------
-// $(document).ready(function(){
-//     $('[data-toggle="tooltip"]').tooltip();
-// })
-//Smooth scrolling
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a,[href='#myPage']").on('click', function(event) {
-  if (this.hash !== "") {
-    event.preventDefault();
-    var hash = this.hash;
-    $('html, body').animate({
-      scrollTop: $(hash).offset().top
-    }, 900, function(){
-      window.location.hash = hash;
-      });
+  $('#btb').hide();
+  // -------- Footer ----------
+  // $(document).ready(function(){
+  //     $('[data-toggle="tooltip"]').tooltip();
+  // })
+
+  //Smooth scrolling
+  $(document).ready(function(){
+    // Add smooth scrolling to all links in navbar + footer link
+    $(".navbar a, footer a,[href='#myPage']").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+          window.location.hash = hash;
+        });
+      }
+    });
+  })
+
+  var timeOut;
+  function scrollToTop() {
+    if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+      window.scrollBy(0,-5);
+      timeOut=setTimeout('scrollToTop()',10);
     }
-  });
-})
-var timeOut;
-function scrollToTop() {
-  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
-    window.scrollBy(0,-5);
-    timeOut=setTimeout('scrollToTop()',10);
+    else clearTimeout(timeOut);
   }
-  else clearTimeout(timeOut);
-}
-// -------- Search ----------
+
+  // -------- Search ----------
   $(document).ready(function() {
-  function toggleSidebar() {
-    $(".button").toggleClass("active");
-    $("main").toggleClass("move-to-left");
-    $(".sidebar-item").toggleClass("active");
-  }
-  $(".button").on("click tap", function() {
-    toggleSidebar();
+
+    function toggleSidebar() {
+      $(".button").toggleClass("active");
+      $("main").toggleClass("move-to-left");
+      $(".sidebar-item").toggleClass("active");
+    }
+
+    $(".button").on("click tap", function() {
+      toggleSidebar();
+    });
   });
-});
-// -------- Show/hide Sidebar ----------
-$('.Show').click(function() {
-    $('#target').show(100);
-    $('.Show').hide(0);
-    $('.Hide').show(0);
-});
-$('.Hide').click(function() {
-    $('#target').hide(100);
-    $('.Show').show(0);
-    $('.Hide').hide(0);
-});
-$('.toggle').click(function() {
-    $('#target').toggle('slow');
-});
-// -------- Checkbox one time only ----------
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-})
-$('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
+
+  // -------- Show/hide Sidebar ----------
+  $('.Show').click(function() {
+      $('#target').show(100);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+  });
+  $('.Hide').click(function() {
+      $('#target').hide(100);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+  });
+  $('.toggle').click(function() {
+      $('#target').toggle('slow');
+  });
+
+  // -------- Checkbox one time only ----------
+  $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+  })
+  $('input[type="checkbox"]').on('change', function() {
+      $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+  });
+
+  //---------press Enter ---------------
+  $("#form-password").keyup(function(event){
+      if(event.keyCode == 13){
+          $("#login_btn").click();
+      }
+  });
 </script>

@@ -128,6 +128,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
 /* arrows */
 select.classic {
   width: 300px;
@@ -146,7 +147,56 @@ select.classic {
   background-repeat: no-repeat;
   radius: 24px;
 }
+
+select.classic2 {
+
+  width: 180px;
+  background-color: #DEDBDB ;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgb(255,215,0) 50%),
+    linear-gradient(135deg, rgb(255,215,0) 50%, transparent 50%),
+    linear-gradient(to right, rgb(255,160,122), rgb(255,160,122));
+
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  radius: 24px;
+
+
+}
 /* Submit button */
+.button-wrap {
+  width: 100%;
+  height: 100%;
+
+}
+
+button {
+  border: none;
+  background: none;
+  margin-top: 5%;
+  cursor: pointer;
+  border-radius: 10px ;
+}
+
+button:hover {
+  background: #dadbd4;
+  color: white;
+}
+
+    .button-login {
+        height: 40px;
+        width: 00px;
+        margin-left: 39%;
+        margin-right: 1%;
+    }
+
     .btn_submit {
 
         background-color: rgb(113, 212, 185);

@@ -4,7 +4,7 @@
   text-align: center;
   width: 100px;
   border-radius: 40px;
-  background: #fff;
+  background: white;
   /*border: 4px solid #322B2B;*/
   border: 5px;
   border-color: black;
@@ -18,8 +18,9 @@
   transition: all 0.25s ease;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
-.btnPlace img :hover {
-  opacity: 100;
+.btnPlace :hover {
+  opacity: 40;
+  background: #dadbd4;
 }
 .btnPlace:active {
   letter-spacing: 2px;

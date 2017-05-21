@@ -1,5 +1,5 @@
 
-  <?php
+<?php
      include 'connection.php';
      $gate = $_POST['gate'];
      $type = $_POST['type'];
@@ -12,8 +12,8 @@
         }
     $check = 0;
     if( $type == "All" && $gate != "" && $province != "" && $stationID != "") { //check
-      $sql = "SELECT bus.BusNo, bus.BusDesc, bus.BusType, bus.StationName, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
-              FROM (SELECT Bus.BusNo as BusNo, Bus.BusDesc as BusDesc, Bus.BusType as BusType, Station.StationName as StationName
+      $sql = "SELECT DISTINCT bus.BusNo, bus.BusDesc, bus.BusType, bus.StationName, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
+              FROM (SELECT DISTINCT Bus.BusNo as BusNo, Bus.BusDesc as BusDesc, Bus.BusType as BusType, Station.StationName as StationName
                     FROM Bus CROSS JOIN Station
                     WHERE Bus.Gate='$gate' AND Station.StationID='$stationID' ) as bus
                     CROSS JOIN
@@ -28,7 +28,7 @@
                                 WHERE driver.BusNo=bag.BusNo AND driver.StaffType<>bag.StaffType AND driver.StaffType='Driver' AND driver.BusType=bag.BusType) as staff
               WHERE bus.BusNo=staff.BusNo AND staff.BusType=bus.BusType";
     } else if($gate == "" && $province == "" && $type == "All" && $stationID == "") { //check
-      $sql = "SELECT bus.BusNo, bus.BusDesc, bus.BusType, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
+      $sql = "SELECT DISTINCT bus.BusNo, bus.BusDesc, bus.BusType, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
               FROM (SELECT DISTINCT driver.BusNo as BusNo, driver.BusType as BusType, driver.FirstName as driverFirstName, driver.LastName as driverLastName, driver.StaffType as driverType, bag.FirstName as bagFirstName, bag.LastName as bagLastName, bag.StaffType as bagType
                     FROM (SELECT Enrollment.BusNo, Enrollment.BusType, Staff.FirstName, Staff.LastName, Staff.StaffType
                           FROM Staff CROSS JOIN Enrollment
@@ -41,7 +41,7 @@
                      LEFT JOIN Bus as bus ON bus.BusNo=staff.BusNo AND bus.BusType=staff.BusType";
       $check = 1;
     } else if($gate == "" && $province == "" && $type != "All" && $stationID == "") { //check
-      $sql = "SELECT bus.BusNo, bus.BusDesc, bus.BusType, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
+      $sql = "SELECT DISTINCT bus.BusNo, bus.BusDesc, bus.BusType, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
               FROM  (SELECT DISTINCT driver.BusNo as BusNo, driver.BusType as BusType, driver.FirstName as driverFirstName, driver.LastName as driverLastName, driver.StaffType as driverType, bag.FirstName as bagFirstName, bag.LastName as bagLastName, bag.StaffType as bagType
                     FROM (SELECT Enrollment.BusNo, Enrollment.BusType, Staff.FirstName, Staff.LastName, Staff.StaffType
                           FROM Staff CROSS JOIN Enrollment
@@ -57,7 +57,7 @@
                      ON bus.BusNo=staff.BusNo AND bus.BusType=staff.BusType";
       $check = 1;
     } else if($gate != "" && $province == "" && $type != "All" && $stationID == "") {//check
-      $sql = "SELECT bus.BusNo, bus.BusDesc, bus.BusType, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
+      $sql = "SELECT DISTINCT bus.BusNo, bus.BusDesc, bus.BusType, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
               FROM  (SELECT DISTINCT driver.BusNo as BusNo, driver.BusType as BusType, driver.FirstName as driverFirstName, driver.LastName as driverLastName, driver.StaffType as driverType, bag.FirstName as bagFirstName, bag.LastName as bagLastName, bag.StaffType as bagType
                     FROM (SELECT Enrollment.BusNo, Enrollment.BusType, Staff.FirstName, Staff.LastName, Staff.StaffType
                           FROM Staff CROSS JOIN Enrollment
@@ -121,8 +121,8 @@
                      ON bus.BusNo=staff.BusNo AND bus.BusType=staff.BusType";
       $check = 1;
     } else { //check when gate not null and province not null and station not null and type not all
-      $sql = "SELECT bus.BusNo, bus.BusDesc, bus.BusType, bus.StationName, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
-              FROM (SELECT Bus.BusNo, Bus.BusDesc, Bus.BusType, Station.StationName
+      $sql = "SELECT DISTINCT bus.BusNo, bus.BusDesc, bus.BusType, bus.StationName, staff.driverFirstName, staff.driverLastName, staff.driverType, staff.bagFirstName, staff.bagLastName, staff.bagType
+              FROM (SELECT DISTINCT Bus.BusNo, Bus.BusDesc, Bus.BusType, Station.StationName
                     FROM Bus CROSS JOIN Station
                     WHERE Bus.Gate='$gate' AND Bus.BusType='$type' AND Station.StationID='$stationID' ) as bus
                     CROSS JOIN
@@ -139,7 +139,7 @@
     }
     $result = mysqli_query($connection, $sql);
     $table = "";
-    $table .= "<table id='displayTable border=1>";
+    $table .= "<table id='display_Table' border=1>";
     if($check == 1) {
       $table .= "<tr><th>BusNo</th>";
       $table .= "<th>BusDesc</th>";
@@ -180,7 +180,7 @@
         $table .= "</table>";
       }
     }
-
-    echo json_encode($table);
+    echo $table;
     disconnect( $connection );
    ?>
+  

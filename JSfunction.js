@@ -2,6 +2,7 @@ var gate = "";
 var type = "All";
 var province = "";
 var stationID = "";
+var stationName = "";
 var list = new Array(10);
 
 function setGate(ngate) {
@@ -21,6 +22,14 @@ function setStation(nstation) {
   stationID = nstation;
 }
 
+function resetData(){
+  setStation(stationName);
+  setProvince(province);
+  setGate(gate);
+
+  showTable();
+}
+
 function showTable() {
   $.ajax({
   method: "POST",
@@ -30,7 +39,7 @@ function showTable() {
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
     console.log(data);
-    $("#show").append(data);
+    $("#display_Table").html(data);
   }
 });
 
@@ -45,6 +54,20 @@ function getStationList(val) {
   data: { province: val },
   success: function( data, status, jqXHR ) {
     $("#select_station_list").html(data);
+  }
+});
+}
+
+function showPopPlace(stationName) {
+  $.ajax({
+  method: "POST",
+  url: "getBusListFromPopularPlace.php",
+  cache: false,
+  dataType: "html",
+  data: { stationName: stationName },
+  success: function( data, status, jqXHR ) {
+    $("#pre_text").html(data);
+    console.log(data);
   }
 });
 }
