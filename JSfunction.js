@@ -4,7 +4,7 @@ var province = "";
 var stationID = "";
 var firstName = "" ;
 var lastName = "" ;
-var age = "" ;
+var inputAge = "" ;
 var gender = "Male" ;
 var TypeStaff = "Driver";
 
@@ -16,7 +16,7 @@ function setlastName(){
   lastName = document.getElementById("input_lastname").value ;
 }
 function setAge() {
-  age = document.getElementById("input_age").value ;
+  inputAge = document.getElementById("input_age").value ;
 }
 function setGender(ngender){
   gender = ngender ;
@@ -163,7 +163,7 @@ function addRow(){
   var col4 = row.insertCell(3);
   col4.innerHTML= gender;
   var col5 = row.insertCell(4);
-  col5.innerHTML= age ;
+  col5.innerHTML= inputAge ;
   var col6 = row.insertCell(5);
   col6.innerHTML= TypeStaff ;
   var col7 = row.insertCell(6);
@@ -180,7 +180,7 @@ function addRow(){
   age.placeholder = "Age..";
   age.value = "" ;
 
-  addStaffList(firstName,lastName,gender,age,TypeStaff);
+  addStaffList(firstName,lastName,gender,Age,TypeStaff);
 }
 
 function getStaffName(divID, busNo, busType, staffType) {
