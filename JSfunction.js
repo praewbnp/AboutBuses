@@ -52,23 +52,22 @@ function showTable() {
   dataType: "html",
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
-    console.log(data);
-    $("#show").append(data);
+    $("#show").html(data);
   }
 });
 }
 
 function getStationList(val) {
   $.ajax({
-    method: "POST",
-    url: "getStationListFromProvinceChoice.php",
-    cache: false,
-    dataType: "html",
-    data: { province: val },
-    success: function( data, status, jqXHR ) {
-      $("#select_station_list").html(data);
-    }
-  });
+  method: "POST",
+  url: "getStationListFromProvinceChoice.php",
+  cache: false,
+  dataType: "html",
+  data: { province: val },
+  success: function( data, status, jqXHR ) {
+    $("#select_station_list").html(data);
+  }
+});
 }
 
 function getStaffList() {
@@ -83,8 +82,9 @@ function getStaffList() {
     }
   });
 }
-function pasuser(form) {
 
+function pasuser(form) {
+  console.log("Sucess Login");
   if (form.username.value=="Angelamp") {
     if (form.password.value=="2538") {
       $('#loginModal').modal('toggle') ;
@@ -144,9 +144,8 @@ function deleteRow(r){
   deleteStaffList(r.id);
 
 }
+
 function addRow(){
-
-
   var table = document.getElementById("table");
   var row= table.insertRow(table.rows.length);
   var id = "S"+ (table.rows.length-1) ;
@@ -181,9 +180,31 @@ function addRow(){
   age.placeholder = "Age..";
   age.value = "" ;
 
-
-
   addStaffList(firstName,lastName,gender,age,TypeStaff);
+}
 
+function getStaffName(divID, busNo, busType, staffType) {
+  $.ajax({
+    method: "POST",
+    url: "getStaffName.php",
+    cache: false,
+    dataType: "html",
+    data: {busNo: busNo, busType: busType, staffType: staffType},
+    success: function(data, status, jqXHR ) {
+      $("#" + divID).html(data);
+    }
+  });
+}
 
+function getBusInfo(divID, busNo, busType) {
+  $.ajax({
+    method: "POST",
+    url: "getBusInfo.php",
+    cache: false,
+    dataType: "html",
+    data: {busNo: busNo, busType: busType},
+    success: function(data, status, jqXHR ) {
+      $("#" + divID).html(data);
+    }
+  });
 }
