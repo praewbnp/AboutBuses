@@ -13,7 +13,7 @@ $sql = "SELECT Staff.FirstName, Staff.LastName
 $result = mysqli_query($connection, $sql);
 $span = "<span>";
 $row = mysqli_fetch_array($result);
-$span .= $row[0] . "<br />" . $row[1];
+$span .= $row[0] . " " . $row[1];
 $span .= "</span>";
 echo $span;
 disconnect($connection)

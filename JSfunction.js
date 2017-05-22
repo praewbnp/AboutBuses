@@ -2,6 +2,8 @@ var gate = "";
 var type = "All";
 var province = "";
 var stationID = "";
+var stationName = "";
+var list = new Array(10);
 var firstName = "" ;
 var lastName = "" ;
 var inputAge = "" ;
@@ -12,19 +14,21 @@ function setfirstName() {
   firstName = document.getElementById("input_firstname").value ;
   console.log(firstName);
 }
+
 function setlastName(){
   lastName = document.getElementById("input_lastname").value ;
 }
+
 function setAge() {
   inputAge = document.getElementById("input_age").value ;
 }
+
 function setGender(ngender){
   gender = ngender ;
 }
 
 function setTypeStaff(nstafftype) {
   TypeStaff = nstafftype ;
-
 }
 
 function setGate(ngate) {
@@ -44,6 +48,14 @@ function setStation(nstation) {
   stationID = nstation;
 }
 
+function resetData(){
+  setStation(stationName);
+  setProvince(province);
+  setGate(gate);
+
+  showTable();
+}
+
 function showTable() {
   $.ajax({
   method: "POST",
@@ -52,7 +64,8 @@ function showTable() {
   dataType: "html",
   data: { gate: gate, type: type, province: province, station: stationID },
   success: function( data, status, jqXHR ) {
-    $("#show").html(data);
+    console.log(data);
+    $("#display_Table").html(data);
   }
 });
 }
@@ -66,6 +79,20 @@ function getStationList(val) {
   data: { province: val },
   success: function( data, status, jqXHR ) {
     $("#select_station_list").html(data);
+  }
+});
+}
+
+function showPopPlace(stationName) {
+  $.ajax({
+  method: "POST",
+  url: "getBusListFromPopularPlace.php",
+  cache: false,
+  dataType: "html",
+  data: { stationName: stationName },
+  success: function( data, status, jqXHR ) {
+    $("#pre_text").html(data);
+    console.log(data);
   }
 });
 }

@@ -133,7 +133,7 @@
             </div>
           </div>
 
-          <!-- Option -->
+      <!-- Option -->
           <div class="row">
             <div class="sidebar-item">
               <label class="slidebar-item sidebar-anchor" style="font-size: 20px; text-align: center;">Option</label><br/>
@@ -258,32 +258,35 @@
   </div><!-- close Modal dialog show login-->
 
   <!-- pop-place -->
-  <div style="padding-top: 0px; text-align: center; height: 350px;">
-    <h1>~ Popular places around KU ~</h1>
-    <div class="container-way" style="padding-top: 60px; margin-top: 0;">
-      <button class="btnPlace" id="place1" onclick="showBusTable('bts', 1);return false"><img src="images/place/p1.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place2" onclick="showBusTable('mrt', 2);return false"><img src="images/place/p2.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place3" onclick="showBusTable('cenLad', 3);return false"><img src="images/place/p3.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place4" onclick="showBusTable('major', 4);return false"><img src="images/place/p4.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place5" onclick="showBusTable('theMall', 5);return false"><img src="images/place/p5.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place6" onclick="showBusTable('future', 6);return false"><img src="images/place/p6.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place7" onclick="showBusTable('donMeung', 7);return false"><img src="images/place/p7.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place8" onclick="showBusTable('theMall', 8);return false"><img src="images/place/p8.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place9" onclick="showBusTable('future', 9);return false"><img src="images/place/p9.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
-      <button class="btnPlace" id="place10" onclick="showBusTable('donMeung', 10);return false"><img src="images/place/p10.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+    <img class="img-responsive" src="./images/pop-place.jpg" style="padding-left: 0px; margin-top: -50px; z-index: 0;"></img>
+
+    <div style="padding-top: 0px; text-align: center; height: 340px;">
+      <div class="container-way" style="padding-top: 20px; margin-top: -340px; z-index: 10;">
+        <button class="btnPlace" id="place1" onclick="showPopPlace('Central Plaza Ladprao');return false"><img src="images/place/p1.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place2" onclick="showPopPlace('Dhurakij Pundit University');return false"><img src="images/place/p2.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place3" onclick="showPopPlace('Sripatum University');return false"><img src="images/place/p3.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place4" onclick="showPopPlace('BTS Mochit');return false"><img src="images/place/p4.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place5" onclick="showPopPlace('Don Mueang International Airport');return false"><img src="images/place/p5.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place6" onclick="showPopPlace('Future Park Rangsit');return false"><img src="images/place/p6.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place7" onclick="showPopPlace('The Mall Ngamwongwan');return false"><img src="images/place/p7.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place8" onclick="showPopPlace('Thammasat University');return false"><img src="images/place/p8.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place9" onclick="showPopPlace('Major Ratchayothin');return false"><img src="images/place/p9.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        <button class="btnPlace" id="place10" onclick="showPopPlace('Air Force Club');return false"><img src="images/place/p10.png" style="height: 100%; width:100%;"\></button><span>&nbsp;</span>
+        </img>
+      </div>
+      <div  style="text-align: center;">
+        <p id="pre_text" style="font-size: 20px; text-transform: uppercase; margin-top: 10px;">
+          FIND POPULAR PLACE
+        </p>
+      </div>
     </div>
-    <div id="show" style="text-align: center;">
-      <p id="pre_text">Find the bus!!</p>
-    </div>
-  </div>
 
   <!--Footer-->
-  <footer class="text-center">
+  <footer class="text-center" style="z-index: 100;">
     <a class="up-arrow" href="#home" onclick="scrollToTop();return false">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a><br>
   </footer>
-
 </body>
 </html>
 

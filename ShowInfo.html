@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="Stylesheet/infoStyle.css" rel="stylesheet">
-    <script type="text/javascript" src="JSfunction.js"></script>
     <link rel="images/character">
   </head>
   <body>
@@ -65,88 +64,7 @@
       </div>
 
 <!-- body -->
-    <div id="loop-info">
-
-    </div>
-
-
-    <footer class="text-center">
-      <a class="up-arrow" href="#town-bar" onclick="scrollToTop();return false">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a><br>
-    </footer>
-  </body>
-
-
-
-  <script>
-    $(document).ready(function() {
-      $('#loop-info').append(function(){
-        var x = '';
-        var busNo = ['24', '29', '29', '39', '39', '59', '59', '104', '104', '510'];
-        var busType = ['Normal', 'Normal', 'Air', 'Normal', 'Air', 'Normal', 'Air', 'Normal', 'Air', 'Air'];
-        for(var i = 1 ; i <= 10 ; i++ ){
-          x+= '<div class="bg-set">' +
-                '<div class="show-info">' +
-                  '<div style="padding-top: 40px;   padding-bottom: 15px;">' +
-                    '<img src="images/character/tag' + busNo[i-1] + '.png" alt="Thumb"  />' +
-                  '</div>' +
-                '</div>' +
-                '<div class="row row-info-bottom">' +
-                  '<div class="col-md-6 img-char">' +
-                    '<figure>' +
-                      '<img src="images/character/d' + i + '.png" alt="Thumb" width="100%" height="250" />' +
-                      '<figcaption><div id= "drive-name-' + i +'">'+
-                        getStaffName('drive-name-'+ i, busNo[i-1], busType[i-1], 'Driver') +
-                      '</div></figcation>' +
-                    '</figure>' +
-                    '<figure >' +
-                      '<img src="images/character/b' + i + '.png" alt="Thumb" width="100%" height="250"  />' +
-                      '<figcaption><div id= "bag-name-' + i + '">' +
-                        getStaffName('bag-name-'+ i, busNo[i-1], busType[i-1], 'Bag') +
-                      '</div></figcation>'+
-                    '</figure>' +
-                  '</div>' +
-                  '<div class="col-md detail-info">' +
-                    '<div class="col-md-5" id= "bus-info-' + i + '">' +
-                      getBusInfo('bus-info-' + i, busNo[i-1], busType[i-1]) +
-                    '</div>' +
-                  '</div>' +
-                '</div>' +
-              '</div>'
-        }
-        // console.log(x);
-
-        return x;
-    });
-    });
-
-
-    var timeOut;
-    function scrollToTop() {
-    	if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
-    		window.scrollBy(0,-100);
-    		timeOut=setTimeout('scrollToTop()',10);
-    	}
-    	else clearTimeout(timeOut);
-    }
-  </script>
-
-
-
-<!--'<p>Bus No. : 24</p>' +
-                      '<p>Bus Type : Normal</p>' +
-                      '<p>Way : Pachaniwet 3 - Kasetsart University</p>' +
-                      '<p>Garage : Pachaniwet 3 - (G1)</p>' +
-                      '<p>Schedule : 04:30 A.M.</p>' +
-                      '<p>Price : 6.50-9.00 Baht</p>' +
-                    '</div>' +
-                    '<div class="col-md-6">' +
-                      '<span>Station : </span>' +
-                      '<span>หมู่บ้านประชานิเวศน์ 2, ซอยสามัคคี, มหาวิทยาลัยธุรกิจบัณฑิตย์, แยกพงษ์เพชร, ชินเขตน์ 1, ชินเขตน์ 2, เรือนจำกลางคลองเปรม, มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>'+
-                    -->
-
-      <!-- <div class="bg-set">
+    <div class="bg-set">
       <div class="show-info">
         <div style="  padding-top: 40px;   padding-bottom: 15px;">
           <img src="images/character/tag24.png" alt="Thumb"  />
@@ -185,4 +103,395 @@
           </div>
         </div>
       </div>
-    </div> -->
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag29.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s3.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s4.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag29.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s5.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s6.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag39.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s7.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s8.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag39.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s9.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s10.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag59.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s12.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s11.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag59.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s13.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s14.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag104.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s18.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s15.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag104.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s19.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s16.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-set">
+      <div class="show-info">
+        <div style="  padding-top: 40px;   padding-bottom: 15px;">
+          <img src="images/character/tag510.png" alt="Thumb"  />
+        </div>
+      </div>
+      <div class="row row-info-bottom">
+        <div class="col-md-6 img-char">
+          <figure>
+            <img src="images/character/s20.png" alt="Thumb" width="100%" height="250" />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+          <figure >
+            <img src="images/character/s17.png" alt="Thumb" width="100%" height="250"  />
+            <figcaption><div>Thumbnail Caption</div></figcation>
+          </figure>
+        </div>
+        <div class="col-md detail-info">
+          <div class="col-md-5">
+            <p>Bus No. : 24</p>
+            <p>Bus Type : Normal</p>
+            <p>Way : Pachaniwet 3 - Kasetsart University</p>
+            <p>Garage : Pachaniwet 3 - (G1)</p>
+            <p>Schedule : 04:30 A.M.</p>
+            <p>Price : 6.50-9.00 Baht</p>
+          </div>
+          <div class="col-md-6">
+            <span>Station : </span>
+            <span>หมู่บ้านประชานิเวศน์ 2
+      ซอยสามัคคี
+      มหาวิทยาลัยธุรกิจบัณฑิตย์
+      แยกพงษ์เพชร
+      ชินเขตน์ 1
+      ชินเขตน์ 2
+      เรือนจำกลางคลองเปรม
+      มหาวิทยาลัยเกษตรศาสตร์ ประตูงามวงศ์วาน</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <footer class="text-center">
+      <a class="up-arrow" href="#town-bar" onclick="scrollToTop();return false">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a><br>
+    </footer>
+  </body>
+
+
+
+  <script>
+    var timeOut;
+    function scrollToTop() {
+    	if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+    		window.scrollBy(0,-100);
+    		timeOut=setTimeout('scrollToTop()',10);
+    	}
+    	else clearTimeout(timeOut);
+    }
+  </script>
